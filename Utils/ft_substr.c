@@ -6,23 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:51:37 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 05:52:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/04 06:08:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper_functions.h"
-
-size_t	ft_strlen(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "Utils.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

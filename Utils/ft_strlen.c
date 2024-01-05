@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.h                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 05:43:43 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 05:48:41 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/04 06:03:33 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/04 06:03:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPER_FUNCTIONS_H
-# define HELPER_FUNCTIONS_H
+#include "Utils.h"
 
-#include <stdlib.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <stdio.h>
+size_t	ft_strlen(char const *str)
+{
+	int	i;
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_split(char const *src, char delim);
-
-
-
-
-#endif
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}

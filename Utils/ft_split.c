@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:34:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 05:53:28 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/04 07:08:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper_functions.h"
+#include "Utils.h"
 
 static int	word_length(char const *src, char delim)
 {
@@ -82,19 +82,4 @@ char	**ft_split(char const *src, char delim)
 		j += word_length((src + j), delim);
 	}
 	return (split);
-}
-
-
-int	main(void)
-{
-	char str[] = ",,,,,,hell o,,,,,wor ld,i s,st upid,,,,,";
-	char **s = ft_split(str, ',');
-	int i = 0;
-	while (s[i])
-		printf("|%s|\n", s[i++]);
-	i = 0;
-	while (s[i])
-		free(s[i++]);
-	free(s);
-	return (0);
 }

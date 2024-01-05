@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isnum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 05:31:08 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/04 07:08:06 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/05 13:42:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "Utils.h"
 
-int main (int argc, char **argv)
+int	ft_isalnum(char a)
 {
-    if (argc <= 2)
-        return;
-          
+	if ((a >= '0' && a <= '9'))
+	{
+		return (1);
+	}
+	return (0);
 }
