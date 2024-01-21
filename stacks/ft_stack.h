@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnum.c                                         :+:      :+:    :+:   */
+/*   ft_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 07:08:06 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 07:42:28 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/19 15:25:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#ifndef FT_STACK_H
 
-int	ft_isnum(char *a)
+#define FT_STACK_H
+
+/*
+
+
+Stacks and structs
+
+*/
+typedef struct node
 {
-	int i;
+    int content;
+    int index;
+    struct node *previous;
+    struct node *next;
+}   t_node;
 
-	i = 0;
-	while (a)
-	{
-		if ((a[i] >= '0' && a[i] <= '9'))
-		{
-			return (1);
-		}
-	i++;
-	}
-	return (0);
-}
- 
+typedef struct stack
+{
+    t_node *head;
+    t_node *tail;
+    
+}   t_stack;
+
+
+
+
+
+
+
+
+
+#endif

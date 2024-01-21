@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:43:43 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/05 04:28:06 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/21 09:33:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 #include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_split(char const *src, char delim);
+char    **ft_split(char *argv, int *list_size);
 size_t	ft_strlen(char const *str);
-int     ft_isalnum(char a);
-
+int     ft_isnum(char *a);
+int	    ft_atoi(const char *str);
+long	ft_atol(const char *str);
+char    *ft_join(int argc, char **argv);
+void	free_split(char **p);
 
 
 

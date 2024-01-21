@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 06:26:42 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/21 10:56:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <stdio.h>
 
 #include "../Utils/Utils.h"
+#include "../stacks/ft_stack.h"
 
 // Helper_functions
 
@@ -33,14 +34,16 @@
     
 // }   t_node;
 
-// typedef struct t_stack
+// typedef struct t_stack  
 // {
 //     t_node  *head;
 //     t_node  *tail;
     
 // }   t_stack;
 
-
+int *validator(char **str, int joined, int *listsize);
+int is_sorted(int *num_list, int c);
+char **getcharlist(char **argv, int argc, int *list_size);
 
 
 

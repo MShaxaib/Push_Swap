@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "helper_functions.h": "c"
+        "helper_functions.h": "c",
+        "push_swap.h": "c",
+        "unistd.h": "c",
+        "stdlib.h": "c"
     }
 }

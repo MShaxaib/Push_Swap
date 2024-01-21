@@ -6,80 +6,164 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:34:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 07:08:22 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/21 09:24:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Utils.h"
 
-static int	word_length(char const *src, char delim)
+int	set_end(char const *s, int begin)
 {
-	int	i;
-		int	word_len;
+	int	end;
 
-	i = -1;
-	word_len = 0;
-	while (src[++i] && src[i] != delim)
-		word_len++;
-	return (word_len);
+	end = begin;
+	while (s[end] && s[end] != ' ')
+		end++;
+	return (end);
 }
 
-static int	word_count(char const *src, char delim)
+int	get_num_ctr(char *arg)
 {
 	int	i;
-	int	j;
-	int	word_ctr;
+	int	ctr;
 
 	i = 0;
-	word_ctr = 0;
-	while (src[i])
+	ctr = 0;
+	while (arg[i] != '\0')
 	{
-		if (src[i] != delim)
-		{
-			j = i;
-			while (src[j] != delim && src[j])
-				j++;
-			i = j;
-			word_ctr++;
-		}
-		if (src[i])
+		if (arg[i] == ' ')
 			i++;
+		else
+		{
+			ctr++;
+			while (arg[i] != '\0' && arg[i] != ' ')
+				i++;
+		}
 	}
-	return (word_ctr);
+	return (ctr);
 }
 
-static char	**free_split(char **split, int word_ctr)
+void	free_split(char **p)
 {
-	while (word_ctr--)
-		free (split[word_ctr]);
-	free (split);
-	return (NULL);
-}
+	int	j;
 
-char	**ft_split(char const *src, char delim)
-{
-	int		i;
-	int		j;
-	int		word_ctr;
-	char	**split;
-
-	i = -1;
 	j = 0;
-	if (!src)
-		return (NULL);
-	word_ctr = word_count(src, delim);
-	split = (char **)malloc(sizeof(char *) * (word_ctr + 1));
-	if (!split)
-		return (NULL);
-	split[word_ctr] = NULL;
-	while (++i < word_ctr)
+	while (p[j] != NULL)
 	{
-		while (src[j] == delim)
-			j++;
-		split[i] = ft_substr(src, j, word_length((src + j), delim));
-		if (!split[i])
-			return (free_split(split, i));
-		j += word_length((src + j), delim);
+		free(p[j]);
+		p[j] = NULL;
+		j++;
 	}
-	return (split);
+	free(p);
 }
+
+char	**fill_list(char *arg, int ctr)
+{
+	unsigned int	begin;
+	unsigned int	end;
+	int				i;
+	char			**char_list;
+
+	i = 0;
+	begin = 0;
+	end = 0;
+	char_list = malloc((ctr + 1) * sizeof(char *));
+	if (char_list == NULL)
+		return (NULL);
+	while (i < ctr)
+	{
+		while (arg[begin] != '\0' && arg[begin] == ' ')
+		{
+			begin++;
+		}
+		end = set_end(arg, begin);
+		char_list[i] = ft_substr(arg, begin, (size_t) end - begin);
+		begin = end;
+		i++;
+	}
+	char_list[i] = NULL;
+	return (char_list);
+}
+
+char	**ft_split(char *arg, int *list_size)
+{
+	char	**char_list;
+
+	if (arg == NULL)
+		return (0);
+	*list_size = get_num_ctr(arg);
+	char_list = fill_list(arg, *list_size);
+	return (char_list);
+}
+// int word_length(char *argv, char delim)
+// {
+// 	int i;
+// 	int word_len;
+	
+// 	i = -1;
+// 	word_len = 0;
+// 	while(argv[++i] && argv[i] != delim)
+// 		word_len++;
+// 	return (word_len);	
+// }
+
+// int word_count(char *argv, char delim)
+// {
+// 	int i;
+// 	int j;
+// 	int ctr;
+
+// 	i = 0;
+// 	ctr = 0;
+
+// 	while(argv[i])
+// 	{
+// 		if(argv[i] != delim)
+// 		{
+// 			j = 1;
+// 			while(argv[j] != delim && argv[i])
+// 				j++;
+// 			i = j;
+// 			ctr++;
+// 		}
+// 		if(argv[i])
+// 			i++;
+// 	}
+// 	return(ctr);
+// }
+
+// void free_split(char **splitted_list, int word_ctr)
+// {
+// 	while (word_ctr--)
+// 		free(splitted_list[word_ctr]);
+// 	free(splitted_list);
+// }
+
+// char **split(char *argv, char delim)
+// {
+// 	int i;
+// 	int j;
+// 	int word_ctr;
+// 	char **splited_list;
+
+// 	i = -1;
+// 	j = 0;
+	
+// 	if(!argv)
+// 		return(NULL);
+// 	word_ctr = word_count(argv, delim);
+// 	splited_list = (char **)malloc(sizeof(char *) * (word_ctr + 1));
+// 	if(!splited_list)
+// 		return(NULL);
+// 	splited_list[word_ctr] = NULL;
+// 	while(++i < word_ctr)
+// 	{
+// 		while (argv[j] == delim)
+// 			j++;
+// 		splited_list[i] = ft_substr(argv, j, word_length((argv + j), delim));
+// 		if(!splited_list[i])
+// 			return(free_split(splited_list, word_ctr), NULL);
+// 		j += word_length((argv + 1), delim);
+// 	}
+// 	return(splited_list);		
+// }
