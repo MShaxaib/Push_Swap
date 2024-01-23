@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/19 15:25:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/22 05:44:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 #define FT_STACK_H
 
+#include <stdlib.h>
+#include <limits.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include <stdio.h>
 /*
 
 
@@ -35,6 +40,9 @@ typedef struct stack
     
 }   t_stack;
 
+
+t_stack *create_stack_a(int *num_list, int list_size);
+t_stack *init_stack(void);
 
 
 
