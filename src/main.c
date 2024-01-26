@@ -6,12 +6,21 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 15:29:52 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/26 15:02:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/* 
+TO BE DONE 
+   ! 1. Create both stacks and test out the moves and print moves as well as the values
+   ^ 2. Start with the actual alorithm
 
+DOING:
+
+DONE:
+
+*/
 int main(int argc, char **argv)
 {
     int *num_list;
@@ -20,8 +29,8 @@ int main(int argc, char **argv)
 
     i = 0;
     t_stack *a;
-    
     // t_stack *b;
+    
     if (argc == 1)
         return 0;
     else if(argc == 2)  
@@ -42,8 +51,21 @@ int main(int argc, char **argv)
         if(is_sorted(num_list, list_size) == 1)
            return(free(num_list), 0);
         a = create_stack_a(num_list, list_size);
+        print_the_stack(a);
+        // b = create_stack_b(num_list, list_size);
         //     if(list_size is greater then 3 make stack b)
         // sort it
         //destroy and free
     }
 }
+
+ void print_the_stack(t_stack *stk)
+ {
+    t_node *iter;
+    
+    while(iter->previous != stk->tail)
+    {
+        printf("%d", iter->content);
+        iter = iter->previous;
+    }
+ }
