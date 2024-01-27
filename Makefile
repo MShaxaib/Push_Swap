@@ -14,6 +14,9 @@ MPATH_DIR	=	src/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)
 
+BPATH_SRCS  =	init_stack.c stack_moves.c stack_ops.c
+BPATH_DIR	=	stacks/
+BPATH		=	$(addprefix $(BPATH_DIR), $(BPATH_SRCS)) 
 OBJ_B		=	$(BPATH:.c=.o)
 
 FUNC_SRCS	=	ft_split.c ft_substr.c ft_strlen.c ft_isnum.c ft_join.c ft_atol.c
@@ -25,8 +28,8 @@ OBJ_F		=	$(FUNC:.c=.o)
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${FLAGS} -c $< -o $@
 
-$(NAME):		$(OBJ_F) $(OBJ_M)
-				@$(CC) $(OBJ_F) $(OBJ_M) -o $(NAME)
+$(NAME):		$(OBJ_F) $(OBJ_M) $(OBJ_B)
+				@$(CC) $(OBJ_F) $(OBJ_M) $(OBJ_B) -o $(NAME)
 				@echo -e "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 all:			$(NAME)

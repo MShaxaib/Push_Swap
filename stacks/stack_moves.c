@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/26 14:34:31 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/27 16:18:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,23 @@
 
 void sa(t_stack *stk_a)
 {
-    int temp;
+    int cont;
 
-    temp = stk_a->head->content;
+    cont = stk_a->head->content;
     if(stk_a ->head != NULL && stk_a->head->previous != NULL)
     {
         stk_a->head->content = stk_a->head->previous->content;
-        stk_a->head->previous = temp;
-        printf("sa");
+        stk_a->head->previous->content = cont;
+        printf("sa\n");
     }
 }
 
 void sb(t_stack *stk_b)
 {
-    int temp;
-
-    temp = stk_b->head->content;
+    t_node *temp;
+    
+    temp = malloc(sizeof(t_node));
+    temp->content = stk_b->head->content;
     if(stk_b ->head != NULL && stk_b->head->previous != NULL)
     {
         stk_b->head->content = stk_b->head->previous->content;
@@ -68,13 +69,13 @@ void ss(t_stack *stk_a, t_stack *stk_b)
     printf("ss");
 }
 
-void rotateStack(t_stack *stk)
+void rotate_stack(t_stack *stk)
 { 
     t_node *temp;
     
     temp = stk->head;
     if(!stk->head || !stk->head->previous)
-        return(NULL);
+        return;
     stk->head = stk->head->previous;
     temp->previous = NULL;
     
@@ -85,7 +86,7 @@ void rotateStack(t_stack *stk)
 void push_a(t_stack *stk_a, t_stack *stk_b)
 {
     if(stk_b->head != NULL)
-        return(NULL);
+        return;
     stk_push(stk_a, stk_b->head->content);
     stk_pop(stk_b);
     printf("pa");
@@ -94,7 +95,7 @@ void push_a(t_stack *stk_a, t_stack *stk_b)
 void push_b(t_stack *stk_a, t_stack *stk_b)
 {
     if(stk_a != NULL)
-        return(NULL);
+        return;
     stk_push(stk_b, stk_a->head->content);
     stk_pop(stk_a);
     printf("pa");
@@ -106,7 +107,7 @@ void rev_rotate(t_stack *stk)
     int     value;
     
     if(!stk->head || !stk->head->previous)
-        return(NULL);    
+        return;    
     current = stk->head;
     value = stk->tail->content;
     while(current->previous != stk->tail)

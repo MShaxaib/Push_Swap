@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:26:07 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 05:44:14 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/27 16:14:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ t_stack *init_stack(void)
         return(NULL);
         
     stk->head = NULL;
-    
+    stk->tail = NULL;
     return(stk);
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/26 15:02:12 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/27 16:18:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@ DOING:
 DONE:
 
 */
+
+
+ void pstk(t_stack *stk)
+ {
+    printf("print stack\n");
+    t_node *iter;
+
+    iter = stk->head;
+    while(iter != NULL)
+    {
+        printf("%d\n", iter->content);
+        iter = iter->previous;
+    }
+ }
+ 
 int main(int argc, char **argv)
 {
     int *num_list;
@@ -42,16 +57,17 @@ int main(int argc, char **argv)
     else
     {
         while(i < list_size)
-            printf("%d", num_list[i++]);   
+            printf("%d\n", num_list[i++]);   
     }
     printf("\n");
-    free(num_list);
     if(num_list)
     {
         if(is_sorted(num_list, list_size) == 1)
            return(free(num_list), 0);
         a = create_stack_a(num_list, list_size);
-        print_the_stack(a);
+        pstk(a);
+        rev_rotate(a);
+        pstk(a);
         // b = create_stack_b(num_list, list_size);
         //     if(list_size is greater then 3 make stack b)
         // sort it
@@ -59,13 +75,3 @@ int main(int argc, char **argv)
     }
 }
 
- void print_the_stack(t_stack *stk)
- {
-    t_node *iter;
-    
-    while(iter->previous != stk->tail)
-    {
-        printf("%d", iter->content);
-        iter = iter->previous;
-    }
- }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/26 14:59:01 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/27 16:18:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,15 @@ t_stack *stk_pop(t_stack *stk);
 void sa(t_stack *stk_a);
 void sb(t_stack *stk_b);
 void ss(t_stack *stk_a, t_stack *stk_b);
-void rotateStack(t_stack *stk);
+void rotate_stack(t_stack *stk);
 void push_a(t_stack *stk_a, t_stack *stk_b);
 void push_b(t_stack *stk_a, t_stack *stk_b);
 void rev_rotate(t_stack *stk);
 void rrr(t_stack *stk_a, t_stack *stk_b);
+
+//test
+
+void pstk(t_stack *stk);
 
 
 
