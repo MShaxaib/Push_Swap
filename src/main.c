@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/27 16:18:42 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/28 15:08:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ DONE:
 
  void pstk(t_stack *stk)
  {
-    printf("print stack\n");
+    // printf("print stack\n");
     t_node *iter;
 
     iter = stk->head;
@@ -59,14 +59,16 @@ int main(int argc, char **argv)
         while(i < list_size)
             printf("%d\n", num_list[i++]);   
     }
-    printf("\n");
+    // printf("\n");
     if(num_list)
     {
         if(is_sorted(num_list, list_size) == 1)
            return(free(num_list), 0);
         a = create_stack_a(num_list, list_size);
-        pstk(a);
-        rev_rotate(a);
+        // pstk(a);
+        printf("----------\n");
+        sa(a);
+        printf("----------\n");
         pstk(a);
         // b = create_stack_b(num_list, list_size);
         //     if(list_size is greater then 3 make stack b)

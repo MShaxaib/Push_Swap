@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/27 16:18:09 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/28 14:28:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void rev_rotate(t_stack *stk)
     stk_push(stk, value);
     free(stk->tail);
     stk->tail = current;
+    printf("rra\n");
 }
 void rrr(t_stack *stk_a, t_stack *stk_b)
 {
