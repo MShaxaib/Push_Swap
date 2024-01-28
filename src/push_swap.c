@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/28 11:58:33 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/28 21:26:14 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,47 @@
     
 &       Pseudo code:
     
-*    1. Declare pointers to two data structures/linked lists, one for stack a and another for `b`
+*    1.	Declare pointers to two data structures/linked lists, one for stack a and another for `b`
 !        Set both pointers to NULL to avoid undefined behaviour and indicate we're starting with empty stacks
-*    2. Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
+*    2.	Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
 !        If input errors, return error
-*    3. Handle both cases of input, whether a variable number of command line arguments, or as a string
+*    3.	Handle both cases of input, whether a variable number of command line arguments, or as a string
 !        If the input of numbers is as a string, call `split()` to split the substrings
-*    4. Initialize stack `a` by appending each input number as a node to stack `a`
+*    4.	Initialize stack `a` by appending each input number as a node to stack `a`
 ^      Handle integer overflow, duplicates, and syntax errors, e.g. input must only contain digits, or signs
 !          If errors found, free stack `a` and return error
 ^      Check for each input, if it is a long integer
 !          If the input is a string, convert it to a long integer
-*    5. Append the nodes to stack `a`
-*    6. Check if stack a` is sorted
+*    5.	Append the nodes to stack `a`
+*    6.	Check if stack a` is sorted
 !        If not sorted, implement our sorting algorithm
-*    7. Check for 2 numbers
+*    7.	Check for 2 numbers
 !        If so, simply swap the numbers
-*    8. Check for 3 numbers
+*    8.	Check for 3 numbers
 !        If so, implement our simple `sort three` algorithm
-*    9. Check if the stack has more than 3 numbers
+*    9.	Check if the stack has more than 3 numbers
 !        If so, implement TURK ALGORITHM
-    
-
 */
+
+void push_swap(t_stack *a,t_stack *b, int list_size)
+{
+	if(list_size == 3)
+		pb(a);
+	
+}
+
+void sort_three(t_stack *stk)
+{
+	t_node *max_value;
+
+	max_value = find_max(stk);
+	
+	//if max is at top: ra
+	//if max is at the the head->previous: rev_rot
+	//stk->head->content > stk->head->previous->content
+		//sa
+	
+
+	
+}
+

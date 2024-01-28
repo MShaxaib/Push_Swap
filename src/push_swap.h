@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/27 12:41:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/28 20:57:17 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-# define PUSH_SWAB_H
+# define PUSH_SWAP_H
 
 #include <stdlib.h>
 #include <limits.h>
@@ -25,5 +25,10 @@
 int *validator(char **str, int joined, int *listsize);
 int is_sorted(int *num_list, int c);
 char **getcharlist(char **argv, int argc, int *list_size);
+
+//
+
+t_node *find_max(t_stack *stk);
+t_node *find_min(t_stack *stk);
 
 #endif
