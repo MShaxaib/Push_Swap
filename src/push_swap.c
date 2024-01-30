@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/30 20:17:06 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/01/30 21:56:19 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void push_swap(t_stack *stk_a,t_stack *stk_b, int list_size)
                 sa(stk_a);
 	if(list_size == 3)
 		sort_three(stk_a);
-        if(list_size > 4)
+        if(stk_length > 3)
                 {
                         //!     do the thing with the thing that does the thing
                 }
@@ -86,9 +86,24 @@ void sort_three(t_stack *stk)
 	//*      if max is at top: ra
 	//*      if max is at the the head->previous: rev_rot
 	//*      stk->head->content > stk->head->previous->content
-	//*      	sa
-	
+	//*      sa	
+}
 
-	
+int stk_length(t_stack *stk)
+{
+        t_node *temp;
+        int     ctr;
+
+        ctr = 0;
+
+        if(!stk || !stk->head)
+                return(0);
+        temp = stk->head;
+        while(temp)
+        {
+                ctr++;
+                temp = temp->previous;
+        }
+        return(ctr);
 }
 
