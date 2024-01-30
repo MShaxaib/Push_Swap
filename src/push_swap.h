@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/28 20:57:17 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:11:41 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 int *validator(char **str, int joined, int *listsize);
 int is_sorted(int *num_list, int c);
 char **getcharlist(char **argv, int argc, int *list_size);
+void sort_three(t_stack *stk);
 
 //
 

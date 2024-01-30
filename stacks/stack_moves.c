@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/28 14:28:48 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/30 20:06:39 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void sb(t_stack *stk_b)
     {
         stk_b->head->content = stk_b->head->previous->content;
         stk_b->head->previous = temp;
-        printf("sb");
+        printf("sb\n");
     }
 }
 

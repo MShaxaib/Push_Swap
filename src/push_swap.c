@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/28 21:26:14 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:17:06 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,16 @@
 !        If so, implement TURK ALGORITHM
 */
 
-void push_swap(t_stack *a,t_stack *b, int list_size)
+void push_swap(t_stack *stk_a,t_stack *stk_b, int list_size)
 {
+        if(list_size == 2)
+                sa(stk_a);
 	if(list_size == 3)
-		pb(a);
+		sort_three(stk_a);
+        if(list_size > 4)
+                {
+                        //!     do the thing with the thing that does the thing
+                }
 	
 }
 
@@ -69,11 +75,18 @@ void sort_three(t_stack *stk)
 	t_node *max_value;
 
 	max_value = find_max(stk);
+
+        if(max_value = stk->head)
+                ra(stk);
+        else if (max_value = stk->head->previous)
+                rev_rotate(stk);
+        else if (stk->head->content > stk->head->previous->content)
+                sa(stk);
 	
-	//if max is at top: ra
-	//if max is at the the head->previous: rev_rot
-	//stk->head->content > stk->head->previous->content
-		//sa
+	//*      if max is at top: ra
+	//*      if max is at the the head->previous: rev_rot
+	//*      stk->head->content > stk->head->previous->content
+	//*      	sa
 	
 
 	
