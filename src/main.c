@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 08:22:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 04:38:46 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ int main(int argc, char **argv)
     if(num_list != NULL)
     {
         if(is_sorted(num_list, list_size) == 1)
-           return(free(num_list), 0);    
+           return(free(num_list), 0);
         a = create_stack_a(num_list, list_size);
-        b = create_stack_b(a, 1);
-
+        b = NULL;
         push_swap(a, b, list_size);
+        pstk(a);
         // pstk(a);
         // printf("----------\n");
         // sa(a);

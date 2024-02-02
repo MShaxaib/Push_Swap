@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/31 09:40:15 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 04:37:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ t_stack *stk_push(t_stack *stk, int value)
     if(!new)
         return(NULL);
     new -> content = value;
+    new -> previous = NULL;
     if(!stk ->head)             // if there are no heads we make the new node the head and the tail
-    {
         stk->tail = new;
-        new->previous = NULL;
-    }   
     else // if there are nodes we give it the value and set the connection to the already present node
         new -> previous = stk->head;
     stk ->head = new;    
@@ -57,19 +55,19 @@ t_stack *create_stack_a(int *num_list, int list_size)
     while(i >= 0)
     {
         stk_push(a , num_list[i]);
-        i --;
+        i--;
     }
     free(num_list);
     return(a);
 }
 
-t_stack *create_stack_b(t_stack *stk_a, int flag)
+t_stack *create_stack_b(t_stack *stk_a, int list_size)
 {
     t_stack *b;
 
     b = init_stack();
     push_b(stk_a, b);
-    if(flag == 1)
+    if(list_size > 4)
         push_b(stk_a, b);
     return(b);
 }

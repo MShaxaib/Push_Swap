@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 20:52:43 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/01/28 20:57:10 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/02 06:35:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,5 @@ t_node *find_min(t_stack *stk)
 	}
 	return(min);	
 }
+
+//update index function to make sure indexes are correct after every stack move is preformed

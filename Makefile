@@ -24,12 +24,13 @@ FUNC_DIR	=	Utils/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)
 
+CFLAGS	= -Wall -Werror -Wextra -fsanitize=address  -g3    
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
-				@${CC} ${FLAGS} -c $< -o $@
+				@${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):		$(OBJ_F) $(OBJ_M) $(OBJ_B)
-				@$(CC) $(OBJ_F) $(OBJ_M) $(OBJ_B) -o $(NAME)
+				@$(CC) ${CFLAGS} $(OBJ_F) $(OBJ_M) $(OBJ_B) -o $(NAME)
 				@echo -e "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 all:			$(NAME)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/30 20:06:39 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/02 05:03:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,19 @@ void ss(t_stack *stk_a, t_stack *stk_b)
 {
     sa(stk_a);
     sb(stk_b);
-    printf("ss");
+    printf("ss\n");
 }
 
-void rotate_stack(t_stack *stk)
+void rotate_stack(t_stack *stk, char c)
 { 
     t_node *temp;
     
+    if (c == 'a')
+        printf("ra\n");
+    else if ('b')
+        printf("rb\n");
+    else if ('2')
+        printf("rr\n");
     temp = stk->head;
     if(!stk->head || !stk->head->previous)
         return;
@@ -89,7 +95,7 @@ void push_a(t_stack *stk_a, t_stack *stk_b)
         return;
     stk_push(stk_a, stk_b->head->content);
     stk_pop(stk_b);
-    printf("pa");
+    printf("pa\n");
 }
 
 void push_b(t_stack *stk_a, t_stack *stk_b)
@@ -98,14 +104,20 @@ void push_b(t_stack *stk_a, t_stack *stk_b)
         return;
     stk_push(stk_b, stk_a->head->content);
     stk_pop(stk_a);
-    printf("pa");
+    printf("pa\n");
 }
 
-void rev_rotate(t_stack *stk)
+void rev_rotate(t_stack *stk, char c)
 {
     t_node *current;
     int     value;
     
+     if (c == 'a')
+        printf("rra\n");
+    else if ('b')
+        printf("rrb\n");
+    else if ('2')
+        printf("rrr\n");
     if(!stk->head || !stk->head->previous)
         return;    
     current = stk->head;
@@ -116,10 +128,10 @@ void rev_rotate(t_stack *stk)
     stk_push(stk, value);
     free(stk->tail);
     stk->tail = current;
-    printf("rra\n");
+   // printf("rra\n");
 }
 void rrr(t_stack *stk_a, t_stack *stk_b)
 {
-    rev_rotate(stk_a);
-    rev_rotate(stk_b);
+    rev_rotate(stk_a, '2');
+    rev_rotate(stk_b, 'n');
 }
