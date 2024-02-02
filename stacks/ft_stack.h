@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/27 16:18:21 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/31 09:44:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,8 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#include "../src/push_swap.h"
-/*
+//Stacks and structs
 
-
-Stacks and structs
-
-*/
 typedef struct node
 {
     int content;
@@ -45,6 +40,7 @@ typedef struct stack
 
 // STACK INITIAZATION
 t_stack *create_stack_a(int *num_list, int list_size);
+t_stack *create_stack_b(t_stack *stk_a, int flag);
 t_stack *init_stack(void);
 
 // STACK OPERATIONS

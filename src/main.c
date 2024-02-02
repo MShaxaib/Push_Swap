@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/28 15:08:35 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/01 08:22:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int main(int argc, char **argv)
 
     i = 0;
     t_stack *a;
-    // t_stack *b;
+    t_stack *b;
+    
     
     if (argc == 1)
         return 0;
@@ -58,18 +59,22 @@ int main(int argc, char **argv)
     {
         while(i < list_size)
             printf("%d\n", num_list[i++]);   
-    }
+    }    
+    printf("this is list_size:%d\n", list_size);
     // printf("\n");
-    if(num_list)
+    if(num_list != NULL)
     {
         if(is_sorted(num_list, list_size) == 1)
-           return(free(num_list), 0);
+           return(free(num_list), 0);    
         a = create_stack_a(num_list, list_size);
+        b = create_stack_b(a, 1);
+
+        push_swap(a, b, list_size);
         // pstk(a);
-        printf("----------\n");
-        sa(a);
-        printf("----------\n");
-        pstk(a);
+        // printf("----------\n");
+        // sa(a);
+        // printf("----------\n");
+        // pstk(a);
         // b = create_stack_b(num_list, list_size);
         //     if(list_size is greater then 3 make stack b)
         // sort it

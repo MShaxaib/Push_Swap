@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/30 21:56:19 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/01 08:16:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,22 @@
 
 void push_swap(t_stack *stk_a,t_stack *stk_b, int list_size)
 {
+        int target_node = 0;
+        int stk_len = stk_length(stk_a);
+        
+     
+        
         if(list_size == 2)
                 sa(stk_a);
-	if(list_size == 3)
+	if(stk_len == 3)
 		sort_three(stk_a);
-        if(stk_length > 3)
+        push_a(stk_a, stk_b);
+        if(stk_len > 3)
                 {
+                        push_a(stk_a, stk_b);
+                        target_node = find_target(stk_a, stk_b); 
+                        printf("%d", target_node);
+                        printf("%d", list_size);  
                         //!     do the thing with the thing that does the thing
                 }
 	
@@ -75,10 +85,11 @@ void sort_three(t_stack *stk)
 	t_node *max_value;
 
 	max_value = find_max(stk);
-
-        if(max_value = stk->head)
-                ra(stk);
-        else if (max_value = stk->head->previous)
+        if(max_value == NULL)
+                return;
+        if((max_value == stk->head))
+                rotate_stack(stk);
+        else if ((max_value == stk->head->previous))
                 rev_rotate(stk);
         else if (stk->head->content > stk->head->previous->content)
                 sa(stk);
@@ -105,5 +116,33 @@ int stk_length(t_stack *stk)
                 temp = temp->previous;
         }
         return(ctr);
+}
+
+int find_target(t_stack *stk_a, t_stack *stk_b)
+{
+        t_node *targetnode;
+        t_node *current_a;
+        t_node *current_b;
+        int result;
+
+        result = 0;
+        current_a = stk_a->head;
+        current_b = stk_b->head;
+        
+        targetnode = malloc(sizeof(t_node));
+        if((targetnode == NULL))
+                return(0);
+        while(current_b != NULL)
+        {
+                if(current_b->content < current_a->content && (targetnode != NULL || current_b->content > targetnode->content))
+                {
+                        current_b = targetnode;
+                }
+                current_b = current_b->previous;       
+        }
+                current_a = current_a->previous;
+                result = targetnode->content;
+                free(targetnode);
+                return(result);
 }
 

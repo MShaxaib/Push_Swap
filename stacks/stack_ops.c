@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/27 16:15:48 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/31 09:40:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ t_stack *create_stack_a(int *num_list, int list_size)
     }
     free(num_list);
     return(a);
+}
+
+t_stack *create_stack_b(t_stack *stk_a, int flag)
+{
+    t_stack *b;
+
+    b = init_stack();
+    push_b(stk_a, b);
+    if(flag == 1)
+        push_b(stk_a, b);
+    return(b);
 }
 // t_stack *create_stack_b(int *num_list, int list_size)
 // {
