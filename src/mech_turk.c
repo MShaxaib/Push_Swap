@@ -50,32 +50,32 @@ t_node  *find_smaller_target(t_node *current_a, t_stack *b)
 void    mechanical_turk(t_stack *a, t_stack *b)
 {
 	t_node  *current_a;
-	// t_node  *current_b;
+	t_node  *current_b;
 	t_node  **targets;
 	//int     *cost;
 	int     i;
 	current_a = a->head;
-		// current_b = b->head;
+		current_b = b->head;
 
-
+	printf("<----------STACKS---------->\n");
 	i = 0;
 	targets = (t_node **)malloc(stk_length(a) * (sizeof(t_node *)));
-	// printf("STACK A\n");
+	printf("---stack A---\n");
 
-	// while (current_a != NULL)
-	// {
-	// 	printf("the node %d\n", current_a->content);
-	// 	current_a = current_a->previous;
-	// //	i ++;
-	// }
-	// 	printf("STACK B\n");
+	while (current_a != NULL)
+	{
+		printf("the node %d\n", current_a->content);
+		current_a = current_a->previous;
+	//	i ++;
+	}
+		printf("\n---stack B---\n");
 
-	// while (current_b != NULL)
-	// {
-	// 	printf("the node %d\n", current_b->content);
-	// 	current_b = current_b->previous;
-	// //	i ++;
-	// }
+	while (current_b != NULL)
+	{
+		printf("the node %d\n", current_b->content);
+		current_b = current_b->previous;
+	//	i ++;
+	}
 // printf("------------------------------------------------------\n");
 	//cost = malloc(sizeof(int));
 	current_a = a->head;
