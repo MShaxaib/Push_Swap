@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 04:37:21 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/05 08:50:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_stack *stk_push(t_stack *stk, int value)
         stk->tail = new;
     else // if there are nodes we give it the value and set the connection to the already present node
         new -> previous = stk->head;
-    stk ->head = new;    
+    stk ->head = new;
+    //printf("the head is %d\n", stk->head->content);  
     return(stk);
         
 }
@@ -36,11 +37,10 @@ t_stack *stk_pop(t_stack *stk)
 {
     t_node *temp;
 
-    temp = malloc(sizeof(t_node));
-    stk->head = temp;
+    temp = stk->head;
     if(stk->head->previous != NULL)
         stk->head = stk->head->previous;
-    stk->head->previous = NULL;
+    temp->previous = NULL;
     free(temp);
     return(stk);
 }
@@ -65,10 +65,12 @@ t_stack *create_stack_b(t_stack *stk_a, int list_size)
 {
     t_stack *b;
 
+   // printf("making b\n");
     b = init_stack();
     push_b(stk_a, b);
     if(list_size > 4)
         push_b(stk_a, b);
+   // printf("finished making b\n");
     return(b);
 }
 // t_stack *create_stack_b(int *num_list, int list_size)

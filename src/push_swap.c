@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 06:52:35 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/05 08:44:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,6 @@ void sort_three(t_stack *stk)
 		rev_rotate(stk, 'a');
 	if (stk->head->content > stk->head->previous->content)
 		sa(stk);
-	
-	//*      if max is at top: ra
-	//*      if max is at the the head->previous: rev_rot
-	//*      stk->head->content > stk->head->previous->content
-	//*      sa	
 }
 
 int stk_length(t_stack *stk)
@@ -93,51 +88,32 @@ int stk_length(t_stack *stk)
 	return(ctr);
 }
 
-int find_target(t_stack *stk_a, t_stack *stk_b)
-{
-	t_node *targetnode;
-	t_node *current_a;
-	t_node *current_b;
-	int result;
+// int find_target(t_stack *stk_a, t_stack *stk_b)
+// {
+// 	t_node *targetnode;
+// 	t_node *current_a;
+// 	t_node *current_b;
+// 	int result;
 
-	result = 0;
-	current_b = stk_b->head;
-	targetnode = malloc(sizeof(t_node));
-	if((targetnode == NULL))
-		return(0);
-	while(current_b != NULL)
-	{
-		if(current_b->content < current_a->content && (targetnode != NULL || current_b->content > targetnode->content))
-		{
-			current_b = targetnode;
-		}
-		current_b = current_b->previous;       
-	}
-	current_a = current_a->previous;
-	result = targetnode->content;
-	free(targetnode);
-	return(result);
-}
-void push_swap(t_stack *stk_a,t_stack *stk_b, int list_size)
+// 	result = 0;
+// 	current_b = stk_b->head;
+// 	targetnode = malloc(sizeof(t_node));
+// 	if((targetnode == NULL))
+// 		return(0);
+// 	current_a = current_a->previous;
+// 	result = targetnode->content;
+// 	free(targetnode);
+// 	return(result);
+// }
+void push_swap(t_stack *stk_a,t_stack *stk_b)
 {
-	int target_node = 0;
-
-	int stk_len = stk_length(stk_a);
-	printf("this is stklen: %d\n", stk_len);
-	if(list_size == 2)
-		sa(stk_a);
-	if(stk_len == 3)
-		sort_three(stk_a);
-	if(stk_len > 3)
-	{
-		stk_b = create_stack_b(stk_a, list_size);
-		push_b(stk_a, stk_b);
+		//while (stk_length(stk_a) > 3)
+		//{
+			mechanical_turk(stk_a, stk_b);
+			//call mechanical turk;
+			//push from a to b;
+		//}
 		/*
-			while (size of a is grater than 3)
-			{
-				call mechanical turk;
-				push from a to b;
-			}
 			sort three;
 			while (size of b is 0)
 			{
@@ -147,9 +123,5 @@ void push_swap(t_stack *stk_a,t_stack *stk_b, int list_size)
 			sort the stack 
 		*/
 		//target_node = find_target_smaller(stk_a, stk_b);
-		printf("%d", target_node);
-		printf("%d", list_size);  
 		//!     do the thing with the thing that does the thing
-	}
-	
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 05:03:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/05 08:49:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void rotate_stack(t_stack *stk, char c)
 }
 void push_a(t_stack *stk_a, t_stack *stk_b)
 {
-    if(stk_b->head != NULL)
+    if(stk_b->head == NULL)
         return;
     stk_push(stk_a, stk_b->head->content);
     stk_pop(stk_b);
@@ -100,11 +100,12 @@ void push_a(t_stack *stk_a, t_stack *stk_b)
 
 void push_b(t_stack *stk_a, t_stack *stk_b)
 {
-    if(stk_a != NULL)
+   // printf("pushing to b\n");
+    if(stk_a->head == NULL)
         return;
     stk_push(stk_b, stk_a->head->content);
     stk_pop(stk_a);
-    printf("pa\n");
+    printf("pb\n");
 }
 
 void rev_rotate(t_stack *stk, char c)

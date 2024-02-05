@@ -9,7 +9,7 @@ HEADER_SRCS	=	push_swap.h
 HEADER_DIR	=	src/
 HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
 
-MPATH_SRCS	=	push_swap.c main.c Parsing.c ps_getcharlist.c push_swap_utils.c
+MPATH_SRCS	=	push_swap.c main.c Parsing.c ps_getcharlist.c push_swap_utils.c mech_turk.c
 MPATH_DIR	=	src/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)
@@ -24,7 +24,7 @@ FUNC_DIR	=	Utils/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra -fsanitize=address  -g3    
+CFLAGS	= -Wall -Werror -Wextra #-fsanitize=address  -g3    
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${CFLAGS} -c $< -o $@

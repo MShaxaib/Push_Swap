@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 20:52:43 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/02 06:35:10 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/05 08:09:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ t_node *find_max(t_stack *stk)
 	t_node *max;
 	t_node *iter;
 
-	max = stk->head;
-	iter = stk->head->previous;
-	
+	if(stk->head)
+		max = stk->head;
+	if (stk->head->previous)
+		iter = stk->head->previous;
+	else
+		return (stk->head);
 	while(iter != NULL)
 	{
 		if(max->content < iter->content)
