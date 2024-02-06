@@ -14,7 +14,7 @@ MPATH_DIR	=	src/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)
 
-BPATH_SRCS  =	init_stack.c stack_moves.c stack_ops.c
+BPATH_SRCS  =	init_stack.c stack_moves.c stack_ops.c stack_utils.c
 BPATH_DIR	=	stacks/
 BPATH		=	$(addprefix $(BPATH_DIR), $(BPATH_SRCS)) 
 OBJ_B		=	$(BPATH:.c=.o)
@@ -24,7 +24,7 @@ FUNC_DIR	=	Utils/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra #-fsanitize=address  -g3    
+CFLAGS	= -Wall -Werror -Wextra -fsanitize=address  -g3    
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${CFLAGS} -c $< -o $@

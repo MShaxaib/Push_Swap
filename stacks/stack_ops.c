@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 08:50:15 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/06 07:37:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_stack *stk_push(t_stack *stk, int value)
     else // if there are nodes we give it the value and set the connection to the already present node
         new -> previous = stk->head;
     stk ->head = new;
-    //printf("the head is %d\n", stk->head->content);  
+    //printf("the head is %d\n", stk->head->content);
+    update_index(stk);
     return(stk);
         
 }
@@ -42,6 +43,7 @@ t_stack *stk_pop(t_stack *stk)
         stk->head = stk->head->previous;
     temp->previous = NULL;
     free(temp);
+    update_index(stk);
     return(stk);
 }
 

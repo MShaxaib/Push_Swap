@@ -5,6 +5,8 @@
         "unistd.h": "c",
         "stdlib.h": "c",
         "ft_stack.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "random": "c",
+        "stdio.h": "c"
     }
 }

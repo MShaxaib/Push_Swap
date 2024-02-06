@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 08:49:17 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/06 07:36:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void sa(t_stack *stk_a)
         stk_a->head->previous->content = cont;
         printf("sa\n");
     }
+    update_index(stk_a);
 }
 
 void sb(t_stack *stk_b)
@@ -60,6 +61,7 @@ void sb(t_stack *stk_b)
         stk_b->head->previous = temp;
         printf("sb\n");
     }
+    update_index(stk_b);
 }
 
 void ss(t_stack *stk_a, t_stack *stk_b)
@@ -88,6 +90,7 @@ void rotate_stack(t_stack *stk, char c)
     stk->tail->previous = temp;
     temp->previous = NULL;
     stk->tail = stk->tail->previous;
+     update_index(stk);
 }
 void push_a(t_stack *stk_a, t_stack *stk_b)
 {
@@ -96,6 +99,9 @@ void push_a(t_stack *stk_a, t_stack *stk_b)
     stk_push(stk_a, stk_b->head->content);
     stk_pop(stk_b);
     printf("pa\n");
+    update_index(stk_a);
+    update_index(stk_b);
+
 }
 
 void push_b(t_stack *stk_a, t_stack *stk_b)
@@ -106,6 +112,8 @@ void push_b(t_stack *stk_a, t_stack *stk_b)
     stk_push(stk_b, stk_a->head->content);
     stk_pop(stk_a);
     printf("pb\n");
+    update_index(stk_a);
+    update_index(stk_b);
 }
 
 void rev_rotate(t_stack *stk, char c)
@@ -130,6 +138,7 @@ void rev_rotate(t_stack *stk, char c)
     free(stk->tail);
     stk->tail = current;
    // printf("rra\n");
+    update_index(stk);
 }
 void rrr(t_stack *stk_a, t_stack *stk_b)
 {

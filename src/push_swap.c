@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 08:44:52 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/06 07:57:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,24 +68,6 @@ void sort_three(t_stack *stk)
 		rev_rotate(stk, 'a');
 	if (stk->head->content > stk->head->previous->content)
 		sa(stk);
-}
-
-int stk_length(t_stack *stk)
-{
-	t_node *temp;
-	int     ctr;
-
-	ctr = 0;
-
-	if(!stk || !stk->head)
-		return(0);
-	temp = stk->head;
-	while(temp)
-	{
-		ctr++;
-		temp = temp->previous;
-	}
-	return(ctr);
 }
 
 // int find_target(t_stack *stk_a, t_stack *stk_b)

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 08:35:36 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/06 10:48:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char **getcharlist(char **argv, int argc, int *list_size);
 void sort_three(t_stack *stk);
 
 //
-int stk_length(t_stack *stk);
 int find_target(t_stack *stk_a, t_stack *stk_b);
 t_node *find_max(t_stack *stk);
 t_node *find_min(t_stack *stk);
@@ -42,6 +41,6 @@ t_node *find_min(t_stack *stk);
 //Mechanical Turk
 void    mechanical_turk(t_stack *a, t_stack *b);
 t_node  *find_smaller_target(t_node *current_a, t_stack *b);
-
+int calculate_cost(int src_idx, int target_idx, t_stack *src_stk, t_stack *target_stk);
 
 #endif

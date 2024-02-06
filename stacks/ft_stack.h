@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 05:16:16 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/06 07:58:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void push_a(t_stack *stk_a, t_stack *stk_b);
 void push_b(t_stack *stk_a, t_stack *stk_b);
 void rev_rotate(t_stack *stk, char c);
 void rrr(t_stack *stk_a, t_stack *stk_b);
+
+
+void	update_index(t_stack *stk);
+int stk_length(t_stack *stk);
 
 //test
 
