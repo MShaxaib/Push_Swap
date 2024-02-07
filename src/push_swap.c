@@ -62,9 +62,9 @@ void sort_three(t_stack *stk)
 	t_node *max_value;
 
 	max_value = find_max(stk);
-	if((max_value == stk->head))
+	if(max_value == stk->head)
 		rotate_stack(stk, 'a');
-	else if ((max_value == stk->head->previous))
+	else if (max_value == stk->head->previous)
 		rev_rotate(stk, 'a');
 	if (stk->head->content > stk->head->previous->content)
 		sa(stk);
@@ -86,12 +86,12 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 		// {
 		// 	mechanical_turk(stk_b, stk_a, 0);
 		// }
-		t_node *current_src= stk_a->head;
-		t_node *current_dest= stk_b->head;
-	printf("\nstack  A after the sort in place\n");
+		t_node *current_src = stk_a->head;
+		t_node *current_dest = stk_b->head;
+	printf("\n<--------------------FINAL STACKS AFTER STUFF-------------------->\n");
 	while (current_src != NULL)
 		{
-			printf("the node %d		has index %d		with target node %d			with the weight of %d		\n", current_src->content, current_src->index, current_src->target->content, current_src->weight);
+			printf("the node %d\n", current_src->content);
 			current_src = current_src->previous;
 		}
 	printf("\nstack  B after the sort in place\n");
@@ -101,6 +101,6 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 			printf("the node %d\n", current_dest->content);
 			current_dest = current_dest->previous;
 		}
-		//target_node = find_target_smaller(stk_a, stk_b);
-		//!     do the thing with the thing that does the thing
+	// 	//target_node = find_target_smaller(stk_a, stk_b);
+	// 	//!     do the thing with the thing that does the thing
 }
