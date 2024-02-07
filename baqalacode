@@ -1,55 +1,40 @@
-int calculate_cost(t_stack *a, t_stack *b,t_node *current_a,t_node *current_b,t_node *target)
-{
-	int cost;
-	int targetidx;
-	int srcidx;
 
-	targetidx = indexof(b,current_a);
-	srcidx = indexof(a, current_b);
-	cost = 0;
-	if(targetidx > srcidx)
-	{
-		while(b->head != target)
-		{
-			rotate_stack(b,'b');
-			cost++;
-		}
-	}
-	else if(targetidx < srcidx)
-	{
-		while(b->head != target)
-		{
-			rev_rotate(b,'b');
-			cost++;
-		}
-	}
-	rotate_stack(b,'b');
-	cost++;
+// int calculate_cost(int src_idx, int target_idx, t_stack *src_stk, t_stack *target_stk) // , t_stack *dest_stk
+// {
+// 	int total_cost;
+// 	double src_pos;
+// 	double target_pos;
+// 	int		src_weight;
+// 	int		target_weight;
 
-	while(a->head != current_a)
-	{
-		rotate_stack(a, 'a');
-		cost++;
-	}
-	rotate_stack(a,'a');
-	cost++;
-	return(cost);
-}
+// 	src_weight = 0;
+// 	target_weight = 0;
+// 	total_cost = 0;
+// 	t_node *itersrc = src_stk->head;
 
-int indexof(t_stack *stk, t_node *target)
-{
-	t_node *current;
-	int index;
+// 	while (itersrc != NULL && itersrc->weight >= 0)
+// 	{
+// 		printf("\nindex:   %d\nweight:  %d\ncontent: %d\n", itersrc->index, itersrc->weight, itersrc->content);
+// 		itersrc = itersrc->previous;
+// 	}
 
-	current = stk->head;
-	index = 0;
+// 	src_pos = (float)src_idx / (float)(stk_length(src_stk));
+// 	target_pos = (float)target_idx / (float)(stk_length(target_stk));
+// 	if (src_idx != 0)
+// 	{
+// 		if (src_pos <= 0.5 )
+// 			src_weight = src_idx;
+// 		else if (src_pos > 0.5)
+// 			src_weight = stk_length(src_stk) - src_idx;
+// 	}
 
-	while(current != NULL)
-	{
-		if(current == target)
-			return(index);
-	}
-	current = current->previous;
-	index++;
-	return(-1);
-}
+// 	if(target_idx != 0)
+// 	{
+// 		if (target_pos <= 0.5)
+// 			target_weight = target_idx;
+// 		else if (target_pos > 0.5)
+// 			target_weight = stk_length(target_stk) - target_idx;
+// 	}
+// 	total_cost = src_weight + target_weight;
+// 	return (total_cost);
+// }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 07:36:35 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/07 07:27:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ void ss(t_stack *stk_a, t_stack *stk_b)
     printf("ss\n");
 }
 
+/// @brief Rotates the stack up shifting every node up by 1
+/// @param stk 
+/// @param c flag for printing | a = ra | b = rb | 2 = rr |
 void rotate_stack(t_stack *stk, char c)
 { 
     t_node *temp;
@@ -115,7 +118,9 @@ void push_b(t_stack *stk_a, t_stack *stk_b)
     update_index(stk_a);
     update_index(stk_b);
 }
-
+/// @brief Rotates the stack down shifting every node down by 1
+/// @param stk 
+/// @param c flag for printing | a = rra | b = rrb | 2 = rrr |
 void rev_rotate(t_stack *stk, char c)
 {
     t_node *current;

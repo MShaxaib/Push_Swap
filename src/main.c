@@ -6,19 +6,26 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 09:05:16 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/07 06:30:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 /* 
-TO BE DONE 
-   ! 1. Create both stacks and test out the moves and print moves as well as the values
-   ^ 2. Start with the actual alorithm
+TO BE DONE:
+    ^   rotate each element and its target node to the top of each of their respective stacks
+    ^   
+
+    
 
 DOING:
-
+    
 DONE:
+   * 1. Create both stacks and test out the moves and print moves as well as the values
+   * 2. Start with the actual alorithm
+   * 3. Calculute the target node 
+   * 4. Calculate the weight 
+        ^ needs to be optomized 
 
 */
 

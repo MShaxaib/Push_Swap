@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 07:57:42 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/07 10:21:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,42 +68,39 @@ void sort_three(t_stack *stk)
 		rev_rotate(stk, 'a');
 	if (stk->head->content > stk->head->previous->content)
 		sa(stk);
+	update_index(stk);
 }
-
-// int find_target(t_stack *stk_a, t_stack *stk_b)
-// {
-// 	t_node *targetnode;
-// 	t_node *current_a;
-// 	t_node *current_b;
-// 	int result;
-
-// 	result = 0;
-// 	current_b = stk_b->head;
-// 	targetnode = malloc(sizeof(t_node));
-// 	if((targetnode == NULL))
-// 		return(0);
-// 	current_a = current_a->previous;
-// 	result = targetnode->content;
-// 	free(targetnode);
-// 	return(result);
-// }
 void push_swap(t_stack *stk_a,t_stack *stk_b)
 {
-		//while (stk_length(stk_a) > 3)
-		//{
-			mechanical_turk(stk_a, stk_b);
+	int i = 0;
+		while (stk_length(stk_a) > 3)
+		{
+			printf("\n*-*-*-*-*-**-*-**-*-**-*-**ITERATION %d -*-**-*-**-*-**-*-**-*-**-*-**-*-**-*-*\n",i++);
+			mechanical_turk(stk_a, stk_b, 1);
 			//call mechanical turk;
 			//push from a to b;
-		//}
-		/*
-			sort three;
-			while (size of b is 0)
-			{
-				call mechanical turk;
-				push from b to a;
-			}
-			sort the stack 
-		*/
+		}
+	
+		sort_three(stk_a);
+		// while (size of b is 0)
+		// {
+		// 	mechanical_turk(stk_b, stk_a, 0);
+		// }
+		t_node *current_src= stk_a->head;
+		t_node *current_dest= stk_b->head;
+	printf("\nstack  A after the sort in place\n");
+	while (current_src != NULL)
+		{
+			printf("the node %d		has index %d		with target node %d			with the weight of %d		\n", current_src->content, current_src->index, current_src->target->content, current_src->weight);
+			current_src = current_src->previous;
+		}
+	printf("\nstack  B after the sort in place\n");
+
+	while (current_dest != NULL)
+		{
+			printf("the node %d\n", current_dest->content);
+			current_dest = current_dest->previous;
+		}
 		//target_node = find_target_smaller(stk_a, stk_b);
 		//!     do the thing with the thing that does the thing
 }

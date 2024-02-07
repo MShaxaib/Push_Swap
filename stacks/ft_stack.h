@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 07:58:10 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/07 04:03:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct node
 {
     int content;
     int index;
+    int weight;
+    struct node *target;
     struct node *previous;
 }   t_node;
 
