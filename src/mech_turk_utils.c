@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 23:44:54 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:58:18 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,23 @@ void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int
         // printf("<><><><><><><><><><><>is in the loop<><><><><><><><><><><>\n");
         if (calc_pos(src_stk, cheapest_node) >= 0.5)
         {
-            printf("should put the cheapest node in A on top with rotating\n");
+            // printf("should put the cheapest node in A on top with rotating\n");
             put_a_to_top(src_stk, cheapest_node, 1);
         }
         else
         {
-            printf("should put the cheapest node in A on top with rev rot\n");
+            // printf("should put the cheapest node in A on top with rev rot\n");
             put_a_to_top(src_stk, cheapest_node, 0);
 
         }
         if (calc_pos(src_stk, cheapest_node->target) >= 0.5)
         {
-            printf("should put the cheapest node in B on top with rotating\n");
+            // printf("should put the cheapest node in B on top with rotating\n");
             put_b_to_top(dest_stk, cheapest_node, 1);
         }
         else
         {
-            printf("should put the cheapest node in B on top with rotating\n");
+            // printf("should put the cheapest node in B on top with rotating\n");
             put_b_to_top(dest_stk, cheapest_node, 0);
         }
     }

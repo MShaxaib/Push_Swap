@@ -101,11 +101,14 @@ t_node *smallest_weight(t_stack *stk)
 	min_node = iter;
 	while(iter != NULL)
 		{
+			printf("the iter is |%d| and its index is (%d)\n", iter->content, iter->index);
 			if(iter->weight < min_node->weight)
+			{
 				min_node = iter;
+			}
+			printf("the minnode is |%d| and its index is (%d)\n", min_node->content, min_node->index);
 			iter = iter->previous;
 		}
-	update_index(stk);
 	return(min_node);
 }
 
@@ -136,7 +139,7 @@ if(src_is_a == 1)
 				current_src = current_src->previous;
 			}
 		min_node = smallest_weight(src_stk);
-		printf("the cheapest node is %d\n", min_node->index);
+		printf("the cheapest node's value is |%d| && its index is (%d)\n", min_node->content, min_node->index);
 		put_to_top(min_node, src_stk, dest_stk, 1);
 		push_head(dest_stk, src_stk ,'a');
 		// push_b(src_stk, dest_stk);

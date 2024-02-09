@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 23:31:56 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:56:51 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ DONE:
     iter = stk->head;
     while(iter != NULL)
     {
-        printf("|%d|\n\n", iter->content);
+        printf("|%d|    (%d)\n\n", iter->content, iter->index);
         iter = iter->previous;
     }
  }
