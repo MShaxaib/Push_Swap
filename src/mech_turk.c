@@ -27,6 +27,32 @@ t_node  *find_smaller_target(t_node *current_src, t_stack *b)
 	return(target);
 }
 
+t_node  *find_smaller_target(t_node *current_src, t_stack *a)
+{
+	t_node  *target;
+	t_node  *current_a;
+
+	current_a = a->head;
+	while(current_a != NULL)
+	{
+		// printf("the current b is : %d\n", current_b->content);
+		current_a = current_a->previous;
+	}
+	target = NULL;
+	current_a = a->head;
+	while(current_a)
+	{
+		if((current_a->content > current_src->content) &&
+			((target == NULL) || (current_a->content < target->content)))
+			target = current_a;
+		current_a = current_a->previous;
+	}
+	if(target == NULL)
+		return(find_min(a));
+	
+	return(target);
+}
+
 /// @brief Calculates the number of moves it takes to move each node in src and its target in dest to the top of their stacks (need to optmise the calculation depending on if the node and target node are above or below the median)
 /// @param src_idx src node's index
 /// @param target_idx target nodes index
