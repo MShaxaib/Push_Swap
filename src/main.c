@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 06:30:12 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/09 23:31:56 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ DONE:
     iter = stk->head;
     while(iter != NULL)
     {
-        // printf("%d\n", iter->content);
+        printf("|%d|\n\n", iter->content);
         iter = iter->previous;
     }
  }
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     {
         if(is_sorted(num_list, list_size) == 1)
            return(free(num_list), 0);
-        a = create_stack_a(num_list, list_size);
+        a = create_stack_a(num_list, list_size); 
         if(list_size == 2)
             sa(a);
         if(list_size == 3)
@@ -72,8 +72,15 @@ int main(int argc, char **argv)
         if(list_size > 3)
         {
             b = create_stack_b(a, list_size);
-            push_swap(a, b);
+            printf("\nStack A before Push Swap\n");
             pstk(a);
+            printf("\nStack B before Push Swap\n");
+            pstk(b);
+            push_swap(a, b);
+            printf("\nStack A after Push Swap\n");
+            pstk(a);
+            printf("\nStack B after Push Swap\n");
+            pstk(b);
         // pstk(a);
         // printf("----------\n");
         // sa(a);
@@ -83,6 +90,7 @@ int main(int argc, char **argv)
         //     if(list_size is greater then 3 make stack b)
         // sort it
         //destroy and free
+        // pstk(b);
         }
     }
 }

@@ -25,15 +25,14 @@ void	update_index(t_stack *stk)
 	int		i;
 	t_node	*iter;
 
-	iter = stk -> head;
 	i = 0;
-	if (iter)
+	if (!stk || !stk->head)
+		return ;
+	iter = stk->head;
+	while (iter)
 	{
-		while (i < stk_length(stk))
-		{
 			iter->index = i;
-			iter =  iter->previous;
-			i ++;
-		}
+			i++;
+			iter = iter->previous;
 	}
 }

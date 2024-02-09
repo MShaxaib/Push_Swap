@@ -3,50 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   mech_turk_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 09:48:17 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/09 23:44:54 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int above_median(src_idx, target_idx)
-// {
-//     int total_weight;
-
-//     total_weight = 0;
-
-//     if(src_idx < target_idx)
-//         total_weight = src_idx + (target_idx - src_idx);
-//     else if (target_idx < src_idx)
-//         total_weight = target_idx  + (src_idx - target_idx);
-//     return(total_weight);   
-// }
-
-
-/*
-        0 + (1 - 0)
-
-        0 + (1 - 0)
-
-        1 + (2 - 1)
-        
-
-*/
 
 /// @brief 
 /// @param src 
 /// @param rot if 1, rotate up, else rotate down 
 void    put_a_to_top(t_stack *a, t_node *n,int rot)
 {
+        // printf("\n\n\n\nthe index of n is %d: \n", n->index);
     if (rot == 1)
+    {
         while (n->index != 0)
-            rotate_stack(a, 'a');
+            {
+                printf("<><><><><><><><><><><>should rotate<><><><><><><><><><><>\n");
+                rotate_stack(a, 'a');
+            }
+    }
     else
         while (n->index != 0)
+        {
             rev_rotate(a, 'a');
+            printf("<><><><><><><><><><><>should rev rotate<><><><><><><><><><><>\n");
+
+        }
 }
 /// @brief 
 /// @param src 
@@ -66,18 +52,33 @@ float   calc_pos(t_stack *stk, t_node *n)
     return ((float)n->index / (float) stk_length(stk));
 }
 
-void put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int src_is_a)
+void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 {
+    // printf("the cheapest node is %d\n", cheapest_node->index);
     if (src_is_a == 1)
     {
+        // printf("<><><><><><><><><><><>is in the loop<><><><><><><><><><><>\n");
         if (calc_pos(src_stk, cheapest_node) >= 0.5)
+        {
+            printf("should put the cheapest node in A on top with rotating\n");
             put_a_to_top(src_stk, cheapest_node, 1);
+        }
         else
+        {
+            printf("should put the cheapest node in A on top with rev rot\n");
             put_a_to_top(src_stk, cheapest_node, 0);
+
+        }
         if (calc_pos(src_stk, cheapest_node->target) >= 0.5)
+        {
+            printf("should put the cheapest node in B on top with rotating\n");
             put_b_to_top(dest_stk, cheapest_node, 1);
+        }
         else
+        {
+            printf("should put the cheapest node in B on top with rotating\n");
             put_b_to_top(dest_stk, cheapest_node, 0);
+        }
     }
     else
     {

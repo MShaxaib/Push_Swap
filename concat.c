@@ -1,5 +1,100 @@
+ 
+ #include "push_swap.h"
+ 
+ void pstk(t_stack *stk)
+ {
+    // printf("print stack\n");
+    t_node *iter;
 
-#include "push_swap.h"
+    iter = stk->head;
+    while(iter != NULL)
+    {
+        // printf("%d\n", iter->content);
+        iter = iter->previous;
+    }
+ }
+ 
+int main(int argc, char **argv)
+{
+    int *num_list;
+    int list_size;
+    t_stack *a;
+    t_stack *b;
+
+    if (argc == 1)
+        return 0;
+    else if(argc == 2)  
+        num_list = validator(++argv, 1, &list_size);
+    else
+        num_list = validator(getcharlist(++argv, argc, &list_size), argc - 1, &list_size);
+    if(!num_list)
+        printf("error in num_list\n");
+    printf("<----------MOVES--------->\n");
+    // printf("\n");
+    if(num_list != NULL)
+    {
+        if(is_sorted(num_list, list_size) == 1)
+           return(free(num_list), 0);
+        a = create_stack_a(num_list, list_size); 
+        if(list_size == 2)
+            sa(a);
+        if(list_size == 3)
+             sort_three(a);
+        if(list_size > 3)
+        {
+            b = create_stack_b(a, list_size);
+            push_swap(a, b);
+            pstk(a);
+        // pstk(a);
+        // printf("----------\n");
+        // sa(a);
+        // printf("----------\n");
+        // pstk(a);
+        // b = create_stack_b(num_list, list_size);
+        //     if(list_size is greater then 3 make stack b)
+        // sort it
+        //destroy and free
+        }
+    }
+}
+
+void sort_three(t_stack *stk)
+{
+	t_node *max_value;
+
+	max_value = find_max(stk);
+	if(max_value == stk->head)
+		rotate_stack(stk, 'a');
+	else if (max_value == stk->head->previous)
+		rev_rotate(stk, 'a');
+	if (stk->head->content > stk->head->previous->content)
+		sa(stk);
+	update_index(stk);
+}
+void push_swap(t_stack *stk_a,t_stack *stk_b)
+{
+	int pi = 0;
+
+	int stacklen;
+
+
+		printf("\n*-*-*-*-*-**-*-**-*-**-*-**ITERATION %d -*-**-*-**-*-**-*-**-*-**-*-**-*-**-*-*\n",pi++);
+		while (stk_length(stk_a) > 3)
+			mechanical_turk(stk_a, stk_b, 1);
+		sort_three(stk_a);
+		
+	
+	stacklen = stk_length(stk_b);
+		printf("stklen of b is : %d\n", stk_length(stk_b));
+		printf("stklen of a is : %d\n", stk_length(stk_a));
+
+		while (stacklen != 0)
+		{
+			printf("Hello\n");
+			mechanical_turk(stk_a, stk_b, 0);
+			stacklen--;
+		}
+}
 
 t_node  *find_smaller_target(t_node *current_src, t_stack *b)
 {
@@ -105,7 +200,6 @@ t_node *smallest_weight(t_stack *stk)
 				min_node = iter;
 			iter = iter->previous;
 		}
-	update_index(stk);
 	return(min_node);
 }
 
@@ -123,30 +217,28 @@ void    mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 if(src_is_a == 1)
 	{
 
-		// printf("\n<----------Debug---------->\n");
+		printf("\n<----------Debug---------->\n");
 			while(current_src != NULL)
 			{
 				current_src->target = find_smaller_target(current_src, dest_stk);
 				current_src-> weight = calculate_cost(current_src->index, current_src->target->index, src_stk, dest_stk);
-				// printf("for node %d :		", current_src->content);
-				// printf("at index: %d\n", current_src->index);
-				// printf("the target is %d		", current_src->target->content);
-				// printf("the weight is %d\n", current_src->weight);
-				// printf("------------------------------------------------------\n");
+				printf("for node %d :		", current_src->content);
+				printf("at index: %d\n", current_src->index);
+				printf("the target is %d		", current_src->target->content);
+				printf("the weight is %d\n", current_src->weight);
+				printf("------------------------------------------------------\n");
 				current_src = current_src->previous;
 			}
 		min_node = smallest_weight(src_stk);
-		printf("the cheapest node is %d\n", min_node->index);
-		put_to_top(min_node, src_stk, dest_stk, 1);
-		push_head(dest_stk, src_stk ,'a');
+		put_to_top(min_node, src_stk, dest_stk, src_is_a);
+		push_head(dest_stk, src_stk ,'b');
 		// push_b(src_stk, dest_stk);
 
 		// current_src = src_stk->head;
 		// current_dest = dest_stk->head;
 	}
-else if (src_is_a == 0)
+else
 	{
-		printf("<><><><><><><><>should not print<><><><><><><><><>\n");
 		while(current_dest != NULL)
 			{
 				current_dest->target = find_larger_target(current_dest,src_stk);
@@ -160,32 +252,36 @@ else if (src_is_a == 0)
 					current_dest = current_dest->previous;
 			}
 			min_node = smallest_weight(dest_stk);
-			put_to_top(min_node,src_stk, dest_stk,src_is_a);
+			put_to_top(min_node, src_stk, dest_stk, src_is_a);
+			// printf("carshes here <-------\n");
 			push_head(src_stk,dest_stk, 'a');
+			// push_a(src_stk, dest_stk);
+			// printf("should reach here here <-------\n");
+
 	}
 
 // current_dest = dest_stk->head;
 
 
-// current_src = src_stk->head;
-// current_dest = dest_stk->head;
+current_src = src_stk->head;
+	current_dest = dest_stk->head;
 
-// // //!----------------------------------------------------------------------------------------------------------------
-// 	printf("<----------STACKS---------->\n");
-// 	printf("---stack A---\n");
+// //!----------------------------------------------------------------------------------------------------------------
+	printf("<----------STACKS---------->\n");
+	printf("---stack A---\n");
 
-// 	while (current_src != NULL)
-// 		{
-// 			printf("|%d|\n", current_src->content);
-// 			current_src = current_src->previous;
-// 		}
-// 		printf("\n---stack B---\n");
+	while (current_src != NULL)
+		{
+			printf("|%d|\n", current_src->content);
+			current_src = current_src->previous;
+		}
+		printf("\n---stack B---\n");
 
-// 	while (current_dest != NULL)
-// 		{
-// 			printf("|%d|\n", current_dest->content);
-// 			current_dest = current_dest->previous;
-// 		}
+	while (current_dest != NULL)
+		{
+			printf("|%d|\n", current_dest->content);
+			current_dest = current_dest->previous;
+		}
 // 	current_src = src_stk->head;
 
 
@@ -193,3 +289,6 @@ else if (src_is_a == 0)
 
 	//printf("\nMin node values -------\nContent: %d\nSrc Index: %d\nWeight: %d\nTarget : %d\nTargets index: %d\n ", min_node->content, min_node->index, min_node->weight, min_node->target->content, min_node->target->index);
 }
+
+
+

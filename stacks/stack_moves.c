@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 07:27:09 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/09 23:29:15 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,29 +95,29 @@ void rotate_stack(t_stack *stk, char c)
     stk->tail = stk->tail->previous;
      update_index(stk);
 }
-void push_a(t_stack *stk_a, t_stack *stk_b)
-{
-    if(stk_b->head == NULL)
-        return;
-    stk_push(stk_a, stk_b->head->content);
-    stk_pop(stk_b);
-    printf("pa\n");
-    update_index(stk_a);
-    update_index(stk_b);
 
+
+/// @brief Pushed the head from dest to src
+/// @param dest To push from
+/// @param src to push to 
+/// @param flag 'a' if dest is A stack, 'b' if dest is B
+void push_head(t_stack *dest, t_stack *src, char flag)
+{
+    if(!src || !src->head || !dest)
+        return;
+    if(flag == 'a')
+        printf("pa\n");
+    if(flag == 'b')
+        printf("pb\n");
+    dest = stk_push(dest, src->head->content);
+    src = stk_pop(src);
+    update_index(dest);
+    if(stk_length(src) > 0)
+        update_index(src);
+    // printf("reached here --------<><><><><>\n");
 }
 
-void push_b(t_stack *stk_a, t_stack *stk_b)
-{
-   // printf("pushing to b\n");
-    if(stk_a->head == NULL)
-        return;
-    stk_push(stk_b, stk_a->head->content);
-    stk_pop(stk_a);
-    printf("pb\n");
-    update_index(stk_a);
-    update_index(stk_b);
-}
+
 /// @brief Rotates the stack down shifting every node down by 1
 /// @param stk 
 /// @param c flag for printing | a = rra | b = rrb | 2 = rrr |

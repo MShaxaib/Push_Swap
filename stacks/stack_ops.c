@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 07:37:43 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/09 23:04:19 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_stack *stk_push(t_stack *stk, int value)
     stk ->head = new;
     //printf("the head is %d\n", stk->head->content);
     update_index(stk);
+    // free(new);
     return(stk);
         
 }
@@ -38,12 +39,14 @@ t_stack *stk_pop(t_stack *stk)
 {
     t_node *temp;
 
+    if (!stk || !stk->head)
+		return (NULL);
     temp = stk->head;
     if(stk->head->previous != NULL)
         stk->head = stk->head->previous;
     temp->previous = NULL;
-    free(temp);
     update_index(stk);
+    // free(temp);
     return(stk);
 }
 
@@ -69,29 +72,11 @@ t_stack *create_stack_b(t_stack *stk_a, int list_size)
 
    // printf("making b\n");
     b = init_stack();
-    push_b(stk_a, b);
+    push_head(b, stk_a, 'b');
+    // push_b(stk_a, b);
     if(list_size > 4)
-        push_b(stk_a, b);
+        push_head(b,stk_a, 'b');
+        // push_b(stk_a, b);
    // printf("finished making b\n");
     return(b);
 }
-// t_stack *create_stack_b(int *num_list, int list_size)
-// {
-//     t_stack *b;
-//     int i;
-    
-//     b = init_stack();
-//     i = list_size - 1;
-
-//     while(i > 0)
-//         stk_push(b , num_list[i--]);
-//     free(num_list);
-//     return(b);
-// }
-// t_stack *create_stack_b(t_stack *a, int list_size)
-// {
-//     t_stack *b;
-
-//     b = init_stack();
-    
-// }
