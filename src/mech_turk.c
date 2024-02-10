@@ -101,23 +101,23 @@ t_node *smallest_weight(t_stack *stk)
 	min_node = stk->head;
 	if (min_node->previous != NULL)
 		iter = min_node->previous;
-	printf("min node content in beginning is %d\n", min_node->content);
+	// printf("min node content in beginning is %d\n", min_node->content);
 	while(iter != NULL)
 	{
-		printf("iter at index %d\n", iter->index);
+		// printf("iter at index %d\n", iter->index);
 		//printf("\nthe weight of element %d with content -%d- is |%d| and its index is (%d)\n",i, iter->content, iter->weight, iter->index);
 		if(iter->weight < min_node->weight)
 		{
 			min_node = iter;
-			printf("min node content is %d\n", min_node->content);
-			printf("min node index is %d\n", min_node->index);
+			// printf("min node content is %d\n", min_node->content);
+			// printf("min node index is %d\n", min_node->index);
 		}
 		iter = iter->previous;
 	}
 		//printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		//printf("the minnode is %d, its weight is |%d|, and its index is (%d)\n", min_node->content ,min_node->weight, min_node->index);
 		//printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	printf("the index of the cheapest node is %d\n", min_node->index);
+	// printf("the index of the cheapest node is %d\n", min_node->index);
 	return(min_node);
 }
 
@@ -134,24 +134,24 @@ void    mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 	current_src = src_stk->head;
 	current_dest = dest_stk->head;
 
-	t_node *a_head;
-	t_node *b_head;
-	a_head = src_stk->head;
-	b_head = dest_stk->head;
+	// t_node *a_head;
+	// t_node *b_head;
+	// a_head = src_stk->head;
+	// b_head = dest_stk->head;
 
-		printf("stack a in beginning					stack b in beginning\n");
-		while(a_head != NULL)
-		{
-			if (a_head != NULL)
-				printf("%d							",a_head->content);
-			if (b_head != NULL)
-			{
-				printf("%d", b_head->content);
-				b_head = b_head->previous;
-			}
-			a_head = a_head ->previous;
-			printf("\n");
-		}
+	// 	printf("stack a in beginning					stack b in beginning\n");
+	// 	while(a_head != NULL)
+	// 	{
+	// 		if (a_head != NULL)
+	// 			printf("%d							",a_head->content);
+	// 		if (b_head != NULL)
+	// 		{
+	// 			printf("%d", b_head->content);
+	// 			b_head = b_head->previous;
+	// 		}
+	// 		a_head = a_head ->previous;
+	// 		printf("\n");
+	// 	}
 
 
 
@@ -171,7 +171,7 @@ if(src_is_a == 1)
 				current_src = current_src->previous;
 			}
 		min_node = smallest_weight(src_stk);
-		printf("the cheapest node's value is |%d| && its index is (%d) && its target is %d and the weight to put it to top is %d\n", min_node->content, min_node->index, min_node->target->content, min_node->weight);
+		// printf("the cheapest node's value is |%d| && its index is (%d) && its target is %d and the weight to put it to top is %d\n", min_node->content, min_node->index, min_node->target->content, min_node->weight);
 		put_to_top(min_node, src_stk, dest_stk, 1);
 		push_head(dest_stk, src_stk ,'a');
 		// printf("stack a now							stack b now\n");

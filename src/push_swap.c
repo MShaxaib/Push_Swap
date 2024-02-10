@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 11:30:14 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/10 13:21:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 {
 	// int pi = 0;
 
-	// int stacklen;
+	// int stacklen = 0;
 
 
 		// printf("\n*-*-*-*-*-**-*-**-*-**-*-**ITERATION %d -*-**-*-**-*-**-*-**-*-**-*-**-*-**-*-*\n",pi++);
@@ -39,16 +39,21 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 			
 		}
 		sort_three(stk_a);
+		// if(find_min(stk_b)->index <= stk_length(stk_b))
+		// 	rev_rotate(stk_b, 'b');
+		// else
+		// 	rotate_stack(stk_b, 'b');
+		
 		
 	
 	// stacklen = stk_length(stk_b);
 	// 	printf("stklen of b is : %d\n", stk_length(stk_b));
 	// 	printf("stklen of a is : %d\n", stk_length(stk_a));
 
-	// 	while (stacklen != 0)
-	// 	{
-	// 		printf("Hello\n");
-	// 		mechanical_turk(stk_a, stk_b, 0);
-	// 		stacklen--;
-	// 	}
+		while (stk_length(stk_b) < 3)
+		{
+			printf("length of stack B is %d\n:", stk_length(stk_a));
+			printf("Hello\n");
+			mechanical_turk(stk_b, stk_a, 0);
+		}
 }
