@@ -24,7 +24,7 @@ FUNC_DIR	=	Utils/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra -fsanitize=address  -g3    
+CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g3
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${CFLAGS} -c $< -o $@

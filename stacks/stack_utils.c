@@ -4,18 +4,18 @@
 int stk_length(t_stack *stk)
 {
 	t_node *temp;
-	int     ctr;
+	int		ctr;
 
 	ctr = 0;
-
 	if(!stk || !stk->head)
 		return(0);
 	temp = stk->head;
-	while(temp)
+	while(temp != NULL)
 	{
 		ctr++;
 		temp = temp->previous;
 	}
+	printf("length %d\n", ctr);
 	return(ctr);
 }
 

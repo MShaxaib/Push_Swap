@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 23:56:51 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:16:09 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,14 @@ int main(int argc, char **argv)
         if(list_size > 3)
         {
             b = create_stack_b(a, list_size);
+            
             printf("\nStack A before Push Swap\n");
             pstk(a);
             printf("\nStack B before Push Swap\n");
             pstk(b);
+            
             push_swap(a, b);
+            
             printf("\nStack A after Push Swap\n");
             pstk(a);
             printf("\nStack B after Push Swap\n");
