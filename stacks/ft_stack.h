@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 22:12:01 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:52:02 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ t_stack *create_stack_b(t_stack *stk_a, int list_size);
 t_stack *init_stack(void);
 
 // STACK OPERATIONS
-t_stack *stk_push(t_stack *stk, int value);
-t_stack *stk_pop(t_stack *stk);
+void stk_push(t_stack *stk, int value);
+void stk_pop(t_stack *stk);
 
 // STACK MOVES
 void sa(t_stack *stk_a);

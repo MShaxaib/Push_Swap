@@ -6,20 +6,20 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 21:24:02 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/10 22:03:34 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-t_stack *stk_push(t_stack *stk, int value)
+void stk_push(t_stack *stk, int value)
 {
 
     t_node *new;
     
     new = malloc(sizeof(t_node));
     if(!new)
-        return(NULL);
+        return ;
     new -> content = value;
     new -> previous = NULL;
     if(!stk ->head)             // if there are no heads we make the new node the head and the tail
@@ -29,25 +29,22 @@ t_stack *stk_push(t_stack *stk, int value)
     stk->head = new;
     //printf("the head is %d\n", stk->head->content);
     update_index(stk);
-    // free(new);
-    return(stk);
-        
 }
 
 
-t_stack *stk_pop(t_stack *stk)
+void stk_pop(t_stack *stk)
 {
     t_node *temp;
 
     if (!stk || !stk->head)
-		return (NULL);
+		return ;
     temp = stk->head;
     if(stk->head->previous != NULL)
         stk->head = stk->head->previous;
     temp->previous = NULL;
     update_index(stk);
     free(temp);
-    return(stk);
+    // return(void *)1;
 }
 
 t_stack *create_stack_a(int *num_list, int list_size)
