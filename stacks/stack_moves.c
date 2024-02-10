@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 23:29:15 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:35:00 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,7 @@ void push_head(t_stack *dest, t_stack *src, char flag)
         printf("pb\n");
     dest = stk_push(dest, src->head->content);
     src = stk_pop(src);
-    update_index(dest);
-    if(stk_length(src) > 0)
-        update_index(src);
+    // if(stk_length(src) > 0)
     // printf("reached here --------<><><><><>\n");
 }
 

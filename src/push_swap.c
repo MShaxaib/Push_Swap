@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 23:33:25 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:30:14 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 
 		// printf("\n*-*-*-*-*-**-*-**-*-**-*-**ITERATION %d -*-**-*-**-*-**-*-**-*-**-*-**-*-**-*-*\n",pi++);
 		while (stk_length(stk_a) > 3)
+		{
 			mechanical_turk(stk_a, stk_b, 1);
+			
+		}
 		sort_three(stk_a);
 		
 	
