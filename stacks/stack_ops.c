@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 22:03:34 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:04:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void stk_pop(t_stack *stk)
     if(stk->head->previous != NULL)
         stk->head = stk->head->previous;
     temp->previous = NULL;
-    update_index(stk);
     free(temp);
+    update_index(stk);
     // return(void *)1;
 }
 

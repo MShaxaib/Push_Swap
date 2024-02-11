@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 22:06:49 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:05:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,10 +139,9 @@ void rev_rotate(t_stack *stk, char c)
         current = current->previous;
     current->previous = NULL;
     stk_push(stk, value);
-    free(stk->tail);
+    update_index(stk);
     stk->tail = current;
    // printf("rra\n");
-    update_index(stk);
 }
 void rrr(t_stack *stk_a, t_stack *stk_b)
 {

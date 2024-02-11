@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mech_turk_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 20:34:48 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:03:08 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void    put_a_to_top(t_stack *a, t_node *n,int rot)
 	else if (rot == 0)
 	{
 		while (n->index != 0)
+		{
 			rev_rotate(a, 'a');
+			// printf("index of n is :%d\n", n->index);
+		}
 	}
 }
 /// @brief 
@@ -48,9 +51,9 @@ float   calc_pos(t_stack *stk, t_node *n)
 
 void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 {
-	int	target_idx;
+	// int	target_idx;
 
-	target_idx = cheapest_node->target->index;
+	// target_idx = cheapest_node->target->index;
 	if (src_is_a == 1)
 	{
 		if (calc_pos(src_stk, cheapest_node) <= 0.5)
