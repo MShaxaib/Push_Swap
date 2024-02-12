@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 21:52:02 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:32:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ void rrr(t_stack *stk_a, t_stack *stk_b);
 void	update_index(t_stack *stk);
 int stk_length(t_stack *stk);
 
+// destroying
+void destroy_stacks(t_stack **a, t_stack **b, int list_size);
+void ft_destroy(t_stack **stk);
+int ft_is_empty(t_stack *stk);
 //test
 
 void pstk(t_stack *stk);

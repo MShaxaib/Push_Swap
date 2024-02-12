@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 12:15:33 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 12:24:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void stk_push(t_stack *stk, int value)
     } 
     stk->head = new;
     //printf("the head is %d\n", stk->head->content);
-    // update_index(stk);
+    update_index(stk);
 }
 
 
@@ -42,8 +42,6 @@ void stk_pop(t_stack *stk)
         return;
     temp = stk->head;
     stk->head = stk->head->previous;
-
-    // If head is NULL, set tail to NULL as well
     if (!stk->head)
         stk->tail = NULL;
     free(temp);

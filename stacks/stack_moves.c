@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 11:51:08 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 13:39:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,22 +78,21 @@ void rotate_stack(t_stack *stk, char c)
 { 
     t_node *temp;
     
-    if (c == 'a')
-        printf("ra\n");
-    else if ('b')
-        printf("rb\n");
-    else if ('2')
-        printf("rr\n");
-    temp = stk->head;
     if(!stk->head || !stk->head->previous)
         return;
+    if (c == 'a')
+        printf("ra\n");
+    else if (c == 'b')
+        printf("rb\n");
+    else if (c == '2')
+        printf("rr\n");
+    temp = stk->head;
     stk->head = stk->head->previous;
     temp->previous = NULL;
-    
     stk->tail->previous = temp;
     temp->previous = NULL;
     stk->tail = stk->tail->previous;
-     update_index(stk);
+    update_index(stk);
 }
 
 
@@ -103,7 +102,6 @@ void rotate_stack(t_stack *stk, char c)
 /// @param flag 'a' if dest is A stack, 'b' if dest is B
 void push_head(t_stack *dest, t_stack *src, char flag)
 {
-    printf("pushing to head\n");
     if(!src || !src->head || !dest)
         return;
     if(flag == 'a')
@@ -125,18 +123,18 @@ void rev_rotate(t_stack *stk, char c)
     t_node *current;
     int     value;
     
-     if (c == 'a')
-        printf("rra\n");
-    else if ('b')
-        printf("rrb\n");
-    else if ('2')
-        printf("rrr\n");
     if(!stk->head || !stk->head->previous)
-        return;    
+        return;   
+    if (c == 'a')
+        printf("rra\n");
+    else if (c =='b')
+        printf("rrb\n");
+    else if (c == '2')
+        printf("rrr\n");
     current = stk->head;
     value = stk->tail->content;
     while(current->previous != stk->tail)
-        current = current->previous;
+             current = current->previous;
     current->previous = NULL;
     stk_push(stk, value);
     update_index(stk);

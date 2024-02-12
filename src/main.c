@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/10 19:16:09 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:43:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,10 @@ int main(int argc, char **argv)
             pstk(a);
             printf("\nStack B after Push Swap\n");
             pstk(b);
-        // pstk(a);
-        // printf("----------\n");
-        // sa(a);
-        // printf("----------\n");
-        // pstk(a);
-        // b = create_stack_b(num_list, list_size);
-        //     if(list_size is greater then 3 make stack b)
-        // sort it
-        //destroy and free
-        // pstk(b);
+    
         }
+        // destroy_stacks(&a, &b, list_size);
     }
 }
+
+//10 22 1 -20 33 41 42
