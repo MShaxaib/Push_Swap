@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/11 19:03:08 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 08:21:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void    put_a_to_top(t_stack *a, t_node *n,int rot)
 	{
 		while (n->index != 0)
 		{
+			printf("index of n is :%d\n", n->index);
 			rev_rotate(a, 'a');
-			// printf("index of n is :%d\n", n->index);
 		}
 	}
 }
@@ -60,20 +60,39 @@ void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int
 			put_a_to_top(src_stk, cheapest_node, 1);
 		else
 			put_a_to_top(src_stk, cheapest_node, 0);
-		if (calc_pos(src_stk, cheapest_node->target) <= 0.5)
+		if (calc_pos(dest_stk, cheapest_node->target) <= 0.5)
 			put_b_to_top(dest_stk, cheapest_node->target, 1);
 		else
 			put_b_to_top(dest_stk, cheapest_node->target, 0);
 	}
 	else if (src_is_a == 0)
 	{
+		printf("--------------this is source stack-------------\n");
+		pstk(src_stk);
+		printf("--------------this is dest stack-------------\n");
+		pstk(dest_stk);
+
 		if (calc_pos(src_stk, cheapest_node) <= 0.5)
-			put_b_to_top(src_stk, cheapest_node, 1);
+			{
+				put_b_to_top(src_stk, cheapest_node, 1);
+				
+			}
 		else
-			put_b_to_top(src_stk, cheapest_node, 0);
-		if (calc_pos(src_stk, cheapest_node->target) <= 0.5)
-			  put_a_to_top(dest_stk, cheapest_node->target, 1);
+			{
+				put_b_to_top(src_stk, cheapest_node, 0);
+
+			}
+		if (calc_pos(dest_stk, cheapest_node->target) <= 0.5)
+			{
+				// printf("the cheapest node is: %d\n", cheapest_node->content);
+				put_a_to_top(dest_stk, cheapest_node->target, 1);
+
+			}
 		else
-			put_a_to_top(dest_stk, cheapest_node->target, 0);
+			{
+				put_a_to_top(dest_stk, cheapest_node->target, 0);
+			printf("the cheapest nodes index is: %d\n", cheapest_node->index);
+			}
+				
 	}
 }

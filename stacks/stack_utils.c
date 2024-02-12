@@ -15,7 +15,7 @@ int stk_length(t_stack *stk)
 		ctr++;
 		temp = temp->previous;
 	}
-	printf("length %d\n", ctr);
+	// printf("length %d\n", ctr);
 	return(ctr);
 }
 

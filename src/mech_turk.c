@@ -143,7 +143,7 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 		min_node = smallest_weight(src_stk);
 		// // printf("this is the min node is |%d| and its index is (%d) and its target's index is %d \n", min_node->content, min_node->index, min_node->target->index);
 		put_to_top(min_node, src_stk, dest_stk, 0);
-		push_head(dest_stk, src_stk, 'a');
+		// push_head(dest_stk, src_stk, 'a');
 	}
 }
 

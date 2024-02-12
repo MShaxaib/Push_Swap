@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/11 19:09:08 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 07:30:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 	{
 		printf("reaches here\n");
 		mechanical_turk(stk_b, stk_a, 0);
-		printf("the length now is : %d\n",stk_length(stk_b));
+		// printf("the length now is : %d\n",stk_length(stk_b));
 	}
 }
