@@ -7,8 +7,6 @@ t_node  *find_smaller_target(t_node *current_src, t_stack *b)
 	t_node  *current_b;
 
 	current_b = b->head;
-	while(current_b != NULL)
-		current_b = current_b->previous;
 	target = NULL;
 	current_b = b->head;
 	while(current_b)
@@ -30,8 +28,6 @@ t_node  *find_larger_target(t_node *current_src, t_stack *a)
 	t_node  *current_a;
 
 	current_a = a->head;
-	while(current_a != NULL)
-		current_a = current_a->previous;
 	target = NULL;
 	while(current_a)
 	{
@@ -143,7 +139,7 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 		min_node = smallest_weight(src_stk);
 		// // printf("this is the min node is |%d| and its index is (%d) and its target's index is %d \n", min_node->content, min_node->index, min_node->target->index);
 		put_to_top(min_node, src_stk, dest_stk, 0);
-		// push_head(dest_stk, src_stk, 'a');
+		push_head(dest_stk, src_stk, 'a');
 	}
 }
 

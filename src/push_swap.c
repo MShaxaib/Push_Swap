@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 07:30:17 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 11:16:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 	while (stk_length(stk_a) > 3)
 		mechanical_turk(stk_a, stk_b, 1);
 	sort_three(stk_a);
-	while (stk_length(stk_b) >= 0 )
+	while (stk_length(stk_b) != 0 )
 	{
-		printf("reaches here\n");
 		mechanical_turk(stk_b, stk_a, 0);
 		// printf("the length now is : %d\n",stk_length(stk_b));
 	}
