@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 13:36:22 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 18:22:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,21 @@
 /// @param rot if 1, rotate up, else rotate down 
 void    put_a_to_top(t_stack *a, t_node *n,int rot)
 {
+	int i;
 	if (rot == 1)
 	{
 		while (n->index != 0)
-				rotate_stack(a, 'a');
+		{
+			rotate_stack(a, 'a');
+		}
 	}
 	else
 	{
-		while (n->index != 0)
+		i = n->index;
+		while (i != 0)
 		{
-			printf("index of n is :%d\n", n->index);
 			rev_rotate(a, 'a');
+			i--;
 		}
 	}
 }
@@ -36,15 +40,50 @@ void    put_a_to_top(t_stack *a, t_node *n,int rot)
 /// @param rot if 1, rotate up, else rotate down 
 void	put_b_to_top(t_stack *b, t_node *n, int rot)
 {
-	if (rot == 1)
-		while (n->index != 0)
-			rotate_stack(b, 'b');
-	else if (rot == 0)
-		while (n->index != 0)
+	int i;
+	i = n->index;
+	
+	if(i > 0)
+	{
+		if(rot == 1)
 		{
-			printf("index of n %d \n", n->index);
-			rev_rotate(b, 'b');
+			while(i > 0)
+			{
+				rotate_stack(b, 'b');
+				i--;
+			}
 		}
+		else
+			{
+				while(i > 0)
+				{
+					rev_rotate(b, 'b');
+					i--;
+				}
+				
+			}
+	}
+	
+	
+	// printf("i is %d\n", i);
+	// if (rot == 1)
+	// {
+	// 	i = n->index;
+	// 	while (i != 0)
+	// 	{
+	// 		rotate_stack(b, 'b');
+	// 		i--;
+	// 	}
+	// }
+	// else
+	// {
+	// 	i = n->index;
+	// 	while (i != 0)
+	// 		{
+	// 			rev_rotate(b, 'b');
+	// 			i--;
+	// 		}
+	// }
 }
 
 float   calc_pos(t_stack *stk, t_node *n)

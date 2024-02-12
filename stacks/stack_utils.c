@@ -35,4 +35,5 @@ void	update_index(t_stack *stk)
 			i++;
 			iter = iter->previous;
 	}
+	
 }

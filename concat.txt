@@ -1,0 +1,537 @@
+typedef struct node
+{
+    int content;
+    int index;
+    int weight;
+    struct node *target;
+    struct node *previous;
+}   t_node;
+
+typedef struct stack
+{
+    t_node *head;
+    t_node *tail;
+    
+}   t_stack;
+
+
+void pstk(t_stack *stk)
+ {
+    // printf("print stack\n");
+    t_node *iter;
+
+    iter = stk->head;
+    while(iter != NULL)
+    {
+        printf("|%d|    (%d)\n\n", iter->content, iter->index);
+        iter = iter->previous;
+    }
+ }
+ 
+int main(int argc, char **argv)
+{
+    int *num_list;
+    int list_size;
+    t_stack *a;
+    t_stack *b;
+
+    if (argc == 1)
+        return 0;
+    else if(argc == 2)  
+        num_list = validator(++argv, 1, &list_size);
+    else
+        num_list = validator(getcharlist(++argv, argc, &list_size), argc - 1, &list_size);
+    if(!num_list)
+        printf("error in num_list\n");
+    printf("<----------MOVES--------->\n");
+    // printf("\n");
+    if(num_list != NULL)
+    {
+        if(is_sorted(num_list, list_size) == 1)
+           return(free(num_list), 0);
+        a = create_stack_a(num_list, list_size); 
+        if(list_size == 2)
+            sa(a);
+        if(list_size == 3)
+             sort_three(a);
+        if(list_size > 3)
+        {
+            b = create_stack_b(a, list_size);
+            
+            printf("\nStack A before Push Swap\n");
+            pstk(a);
+            printf("\nStack B before Push Swap\n");
+            pstk(b);
+            
+            push_swap(a, b);
+            
+            printf("\nStack A after Push Swap\n");
+            pstk(a);
+            printf("\nStack B after Push Swap\n");
+            pstk(b);
+    
+        }
+        // destroy_stacks(&a, &b, list_size);
+    }
+}
+
+void sort_three(t_stack *stk)
+{
+	t_node *max_value;
+
+	max_value = find_max(stk);
+	if(max_value == stk->head)
+		rotate_stack(stk, 'a');
+	else if (max_value == stk->head->previous)
+		rev_rotate(stk, 'a');
+	if (stk->head->content > stk->head->previous->content)
+		sa(stk);
+	update_index(stk);
+}
+void push_swap(t_stack *stk_a,t_stack *stk_b)
+{
+	while (stk_length(stk_a) > 3)
+		mechanical_turk(stk_a, stk_b, 1);
+	sort_three(stk_a);
+	printf("this is stack a\n");
+	pstk(stk_a);
+	printf("this is stack b\n");
+	pstk(stk_b);
+	// while (stk_length(stk_b) != 0 )
+	// 	mechanical_turk(stk_b, stk_a, 0);
+}
+t_node  *find_smaller_target(t_node *current_src, t_stack *b)
+{
+	t_node  *target;
+	t_node  *current_b;
+
+	current_b = b->head;
+	target = NULL;
+	current_b = b->head;
+	while(current_b)
+	{
+		if((current_b->content < current_src->content) &&
+			((target == NULL) || (current_b->content > target->content)))
+			target = current_b;
+		current_b = current_b->previous;
+	}
+	if(target == NULL)
+		return(find_max(b));
+	
+	return(target);
+}
+
+t_node  *find_larger_target(t_node *current_src, t_stack *a)
+{
+	t_node  *target;
+	t_node  *current_a;
+
+	current_a = a->head;
+	target = NULL;
+	while(current_a)
+	{
+		if(current_a->content > current_src->content)
+		{
+			if(target == NULL || current_a->content < target->content)
+			{	
+				target = current_a;
+			}
+		}
+		current_a = current_a->previous;
+	}
+	if(target == NULL)
+		return(find_min(a));
+	
+	return(target);
+}
+
+/// @brief Calculates the number of moves it takes to move each node in src and its target in dest to the top of their stacks (need to optmise the calculation depending on if the node and target node are above or below the median)
+/// @param src_idx src node's index
+/// @param target_idx target nodes index
+/// @param src_stk Stack A
+/// @param target_stk Stack B
+/// @return 
+int calculate_cost(int src_idx, int target_idx, t_stack *src_stk, t_stack *target_stk)
+{
+	int total_cost;
+	double src_pos;
+	double target_pos;
+	int		src_weight;
+	int		target_weight;
+
+	src_weight = 0;
+	target_weight = 0;
+	total_cost = 0;
+	src_pos = (float)src_idx / (float)(stk_length(src_stk));
+	target_pos = (float)target_idx / (float)(stk_length(target_stk));
+	if (src_idx != 0)
+	{
+		if (src_pos <= 0.5)
+			src_weight = src_idx;
+		else
+			src_weight = stk_length(src_stk) - src_idx;
+	}
+	if(target_idx != 0)
+	{
+		if (target_pos <= 0.5)
+			target_weight = target_idx;
+		else
+			target_weight = stk_length(target_stk) - target_idx;
+	}
+	total_cost = src_weight + target_weight;
+	return (total_cost);
+}
+
+t_node *smallest_weight(t_stack *stk)
+{
+	t_node *iter;
+	t_node *min_node;
+
+	iter = NULL;
+	min_node = stk->head;
+	if (min_node->previous != NULL)
+		iter = min_node->previous;
+	while(iter != NULL)
+	{
+		if(iter->weight < min_node->weight)
+			min_node = iter;
+		iter = iter->previous;
+	}
+	return(min_node);
+}
+
+
+
+/// @brief implementation of the mechanical turk algorithm
+/// @param a (to be changed to source) the source stack to be pushed from
+/// @param b (to be changed to dest) the destination to push to
+void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
+{
+	t_node  *current_src;
+	// t_node  *current_dest;
+	t_node *min_node;
+
+	min_node = NULL;
+	current_src = src_stk->head;
+	// current_dest = dest_stk->head;
+	if(src_is_a == 1)
+	{
+		while(current_src != NULL)
+			{
+				current_src->target = find_smaller_target(current_src, dest_stk);
+				current_src-> weight = calculate_cost(current_src->index, current_src->target->index, src_stk, dest_stk);
+				current_src = current_src->previous;
+			}
+		min_node = smallest_weight(src_stk);
+		put_to_top(min_node, src_stk, dest_stk, 1);
+		push_head(dest_stk, src_stk ,'b');
+	}
+	else if (src_is_a == 0)
+	{
+		current_src = src_stk->head;
+		while(current_src != NULL)
+		{
+			current_src->target = find_larger_target(current_src,dest_stk);
+			current_src->weight = calculate_cost(current_src->index, current_src->target->index, src_stk, dest_stk);
+			current_src = current_src->previous;
+		}
+		min_node = smallest_weight(src_stk);
+		// // printf("this is the min node is |%d| and its index is (%d) and its target's index is %d \n", min_node->content, min_node->index, min_node->target->index);
+		put_to_top(min_node, src_stk, dest_stk, 0);
+		push_head(dest_stk, src_stk, 'a');
+	}
+}
+
+void    put_a_to_top(t_stack *a, t_node *n,int rot)
+{
+	if (rot == 1)
+	{
+		while (n->index != 0)
+				rotate_stack(a, 'a');
+	}
+	else
+	{
+		while (n->index != 0)
+		{
+			// printf("index of n is :%d\n", n->index);
+			rev_rotate(a, 'a');
+		}
+	}
+}
+/// @brief 
+/// @param src 
+/// @param rot if 1, rotate up, else rotate down 
+void	put_b_to_top(t_stack *b, t_node *n, int rot)
+{
+	if (rot == 1)
+		while (n->index != 0)
+			rotate_stack(b, 'b');
+	else
+	{
+		while (n->index != 0)
+			{
+				printf("index of n: %d \n", n->index);
+				rev_rotate(b, 'b');
+			}
+	}
+}
+
+float   calc_pos(t_stack *stk, t_node *n)
+{
+	// printf("the pos is : %f------------------------------------------------------------------------------------------->\n", calc_pos(stk, n->target));
+	return ((float)n->index / (float) stk_length(stk));
+}
+
+void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int src_is_a)
+{
+	// int	target_idx;
+
+	// target_idx = cheapest_node->target->index;
+	if (src_is_a == 1)
+	{
+		if (calc_pos(src_stk, cheapest_node) <= 0.5)
+			put_a_to_top(src_stk, cheapest_node, 1);
+		else
+			put_a_to_top(src_stk, cheapest_node, 0);
+		if (calc_pos(dest_stk, cheapest_node->target) <= 0.5)
+			put_b_to_top(dest_stk, cheapest_node->target, 1);
+		else
+			put_b_to_top(dest_stk, cheapest_node->target, 0);
+	}
+	else if (src_is_a == 0)
+	{
+		if (calc_pos(src_stk, cheapest_node) <= 0.5)
+				put_b_to_top(src_stk, cheapest_node, 1);
+		else
+				put_b_to_top(src_stk, cheapest_node, 0);
+		if (calc_pos(dest_stk, cheapest_node->target) <= 0.5)				
+				put_a_to_top(dest_stk, cheapest_node->target, 1);
+		else
+				put_a_to_top(dest_stk, cheapest_node->target, 0);
+	}
+}
+
+void sa(t_stack *stk_a)
+{
+    int cont;
+
+    cont = stk_a->head->content;
+    if(stk_a ->head != NULL && stk_a->head->previous != NULL)
+    {
+        stk_a->head->content = stk_a->head->previous->content;
+        stk_a->head->previous->content = cont;
+        printf("sa\n");
+    }
+    update_index(stk_a);
+}
+
+void sb(t_stack *stk_b)
+{
+    t_node *temp;
+    
+    temp = malloc(sizeof(t_node));
+    temp->content = stk_b->head->content;
+    if(stk_b ->head != NULL && stk_b->head->previous != NULL)
+    {
+        stk_b->head->content = stk_b->head->previous->content;
+        stk_b->head->previous = temp;
+        printf("sb\n");
+    }
+    update_index(stk_b);
+}
+
+void ss(t_stack *stk_a, t_stack *stk_b)
+{
+    sa(stk_a);
+    sb(stk_b);
+    printf("ss\n");
+}
+
+/// @brief Rotates the stack up shifting every node up by 1
+/// @param stk 
+/// @param c flag for printing | a = ra | b = rb | 2 = rr |
+void rotate_stack(t_stack *stk, char c)
+{ 
+    t_node *temp;
+    
+    if(!stk->head || !stk->head->previous)
+        return;
+    if (c == 'a')
+        printf("ra\n");
+    else if (c == 'b')
+        printf("rb\n");
+    else if (c == '2')
+        printf("rr\n");
+    temp = stk->head;
+    stk->head = stk->head->previous;
+    temp->previous = NULL;
+    stk->tail->previous = temp;
+    stk->tail = stk->tail->previous;
+    update_index(stk);
+}
+
+
+/// @brief Pushed the head from dest to src
+/// @param dest To push from
+/// @param src to push to 
+/// @param flag 'a' if dest is A stack, 'b' if dest is B
+void push_head(t_stack *dest, t_stack *src, char flag)
+{
+    if(!src || !src->head || !dest)
+        return;
+    if(flag == 'a')
+        printf("pa\n");
+    if(flag == 'b')
+        printf("pb\n");
+    stk_push(dest, src->head->content);
+    stk_pop(src);
+    // if(stk_length(src) > 0)
+    // printf("reached here --------<><><><><>\n");
+}
+
+
+/// @brief Rotates the stack down shifting every node down by 1
+/// @param stk 
+/// @param c flag for printing | a = rra | b = rrb | 2 = rrr |
+void rev_rotate(t_stack *stk, char c)
+{
+    t_node *current;
+    int     value;
+    
+    if(!stk->head || !stk->head->previous)
+        return;   
+    if (c == 'a')
+        printf("rra\n");
+    else if (c =='b')
+        printf("rrb\n");
+    else if (c == '2')
+        printf("rrr\n");
+    current = stk->head;
+    value = stk->tail->content;
+    
+    while(current->previous != stk->tail)
+             current = current->previous;
+    current->previous = NULL;
+    stk->tail = current;
+    stk_push(stk, value);
+    // update_index(stk);
+   // printf("rra\n");
+}
+void rrr(t_stack *stk_a, t_stack *stk_b)
+{
+    rev_rotate(stk_a, '2');
+    rev_rotate(stk_b, 'n');
+}
+
+int stk_length(t_stack *stk)
+{
+	t_node *temp;
+	int		ctr;
+
+	ctr = 0;
+	if(!stk || !stk->head)
+		return(0);
+	temp = stk->head;
+	while(temp != NULL)
+	{
+		ctr++;
+		temp = temp->previous;
+	}
+	// printf("length %d\n", ctr);
+	return(ctr);
+}
+
+
+void	update_index(t_stack *stk)
+{
+	int		i;
+	t_node	*iter;
+
+	i = 0;
+	if (!stk || !stk->head)
+		return ;
+	iter = stk->head;
+	while (iter)
+	{
+			iter->index = i;
+			i++;
+			iter = iter->previous;
+	}
+}
+
+void stk_push(t_stack *stk, int value)
+{
+
+    t_node *new;
+    
+    new = malloc(sizeof(t_node));
+    if(!new)
+        return ;
+    new -> content = value;
+    new -> previous = NULL;
+    if(!stk ->head)             // if there are no heads we make the new node the head and the tail
+        stk->tail = new;
+    else
+    {
+        new -> previous = stk->head;    // if there are nodes we give it the value and set the connection to the already present node
+    } 
+    stk->head = new;
+    //printf("the head is %d\n", stk->head->content);
+    update_index(stk);
+}
+
+
+void stk_pop(t_stack *stk)
+{
+   t_node *temp;
+
+    if (!stk || !stk->head)
+        return;
+    temp = stk->head;
+    stk->head = stk->head->previous;
+    if (!stk->head)
+        stk->tail = NULL;
+    update_index(stk);
+    free(temp);
+    // t_node *temp;
+
+    // if (!stk || !stk->head)
+	// 	return ;
+    // temp = stk->head;
+    // if(stk->head->previous != NULL)
+    //     stk->head = stk->head->previous;
+    // temp->previous = NULL;
+    // free(temp);
+    // // return(void *)1;
+}
+
+t_stack *create_stack_a(int *num_list, int list_size)
+{
+    t_stack *a;
+    int i;
+    
+    a = init_stack();
+    i = list_size - 1;
+    while(i >= 0)
+    {
+        stk_push(a , num_list[i]);
+        i--;
+    }
+    free(num_list);
+    return(a);
+}
+
+t_stack *create_stack_b(t_stack *stk_a, int list_size)
+{
+    t_stack *b;
+
+   // printf("making b\n");
+    b = init_stack();
+    push_head(b, stk_a, 'b');
+    // push_b(stk_a, b);
+    if(list_size > 4)
+        push_head(b,stk_a, 'b');
+        // push_b(stk_a, b);
+   // printf("finished making b\n");
+    return(b);
+}

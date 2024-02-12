@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 13:39:39 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/12 17:23:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,35 @@ void rotate_stack(t_stack *stk, char c)
     stk->head = stk->head->previous;
     temp->previous = NULL;
     stk->tail->previous = temp;
-    temp->previous = NULL;
     stk->tail = stk->tail->previous;
     update_index(stk);
+}
+/// @brief Rotates the stack down shifting every node down by 1
+/// @param stk 
+/// @param c flag for printing | a = rra | b = rrb | 2 = rrr |
+void rev_rotate(t_stack *stk, char c)
+{
+    t_node *current;
+    int     value;
+    
+    if(!stk->head || !stk->head->previous)
+        return;   
+    if (c == 'a')
+        printf("rra\n");
+    else if (c =='b')
+        printf("rrb\n");
+    else if (c == '2')
+        printf("rrr\n");
+    current = stk->head;
+    value = stk->tail->content;
+    
+    while(current->previous != stk->tail)
+             current = current->previous;
+    current->previous = NULL;
+    stk->tail = current;
+    stk_push(stk, value);
+    update_index(stk);
+   // printf("rra\n");
 }
 
 
@@ -115,35 +141,9 @@ void push_head(t_stack *dest, t_stack *src, char flag)
 }
 
 
-/// @brief Rotates the stack down shifting every node down by 1
-/// @param stk 
-/// @param c flag for printing | a = rra | b = rrb | 2 = rrr |
-void rev_rotate(t_stack *stk, char c)
+void rrr(t_stack *stk_a, t_stack *stk_b)
 {
-    t_node *current;
-    int     value;
-    
-    if(!stk->head || !stk->head->previous)
-        return;   
-    if (c == 'a')
-        printf("rra\n");
-    else if (c =='b')
-        printf("rrb\n");
-    else if (c == '2')
-        printf("rrr\n");
-    current = stk->head;
-    value = stk->tail->content;
-    while(current->previous != stk->tail)
-             current = current->previous;
-    current->previous = NULL;
-    stk_push(stk, value);
-    update_index(stk);
-    stk->tail = current;
-   // printf("rra\n");
+    rev_rotate(stk_a, '2');
+    rev_rotate(stk_b, 'n');
 }
-// void rrr(t_stack *stk_a, t_stack *stk_b)
-// {
-//     rev_rotate(stk_a, '2');
-//     rev_rotate(stk_b, 'n');
-// }
 

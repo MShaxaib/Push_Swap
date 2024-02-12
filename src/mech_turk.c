@@ -115,6 +115,9 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 	min_node = NULL;
 	current_src = src_stk->head;
 	// current_dest = dest_stk->head;
+
+	
+
 	if(src_is_a == 1)
 	{
 		while(current_src != NULL)
@@ -124,11 +127,15 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 				current_src = current_src->previous;
 			}
 		min_node = smallest_weight(src_stk);
+		printf("the cheapest node is :%d, its target is %d\n", min_node->content, min_node->target->content);
 		put_to_top(min_node, src_stk, dest_stk, 1);
 		push_head(dest_stk, src_stk ,'b');
 	}
+
+
 	else if (src_is_a == 0)
 	{
+		printf("reached here ----------------------------------------------------->\n");
 		current_src = src_stk->head;
 		while(current_src != NULL)
 		{
@@ -137,7 +144,6 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 			current_src = current_src->previous;
 		}
 		min_node = smallest_weight(src_stk);
-		// // printf("this is the min node is |%d| and its index is (%d) and its target's index is %d \n", min_node->content, min_node->index, min_node->target->index);
 		put_to_top(min_node, src_stk, dest_stk, 0);
 		push_head(dest_stk, src_stk, 'a');
 	}
