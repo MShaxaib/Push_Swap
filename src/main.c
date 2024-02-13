@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 12:43:28 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/13 21:39:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,11 @@ DONE:
 
  void pstk(t_stack *stk)
  {
-    // printf("print stack\n");
     t_node *iter;
 
     iter = stk->head;
     while(iter != NULL)
-    {
-        printf("|%d|    (%d)\n\n", iter->content, iter->index);
         iter = iter->previous;
-    }
  }
  
 int main(int argc, char **argv)
@@ -58,8 +54,6 @@ int main(int argc, char **argv)
         num_list = validator(getcharlist(++argv, argc, &list_size), argc - 1, &list_size);
     if(!num_list)
         printf("error in num_list\n");
-    printf("<----------MOVES--------->\n");
-    // printf("\n");
     if(num_list != NULL)
     {
         if(is_sorted(num_list, list_size) == 1)
@@ -71,23 +65,10 @@ int main(int argc, char **argv)
              sort_three(a);
         if(list_size > 3)
         {
-            b = create_stack_b(a, list_size);
-            
-            printf("\nStack A before Push Swap\n");
-            pstk(a);
-            printf("\nStack B before Push Swap\n");
-            pstk(b);
-            
-            push_swap(a, b);
-            
-            printf("\nStack A after Push Swap\n");
-            pstk(a);
-            printf("\nStack B after Push Swap\n");
-            pstk(b);
-    
+            b = create_stack_b(a, list_size);            
+            push_swap(a, b);    
         }
         // destroy_stacks(&a, &b, list_size);
     }
 }
 
-//10 22 1 -20 33 41 42

@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 19:15:57 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:40:06 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	put_b_to_top(t_stack *b, t_node *n, int rot)
 	{
 		if(rot == 1)
 		{
-			printf("should rotate (%d) of time\n", i);
 			while(i != 0)
 			{
 				rotate_stack(b, 'b');
@@ -56,7 +55,6 @@ void	put_b_to_top(t_stack *b, t_node *n, int rot)
 		}
 		else if (rot == 0)
 			{
-				printf("should rev rotate (%d) of time\n", i);
 				while(i != 0)
 				{	
 					rev_rotate(b, 'b');
@@ -68,8 +66,6 @@ void	put_b_to_top(t_stack *b, t_node *n, int rot)
 
 float   calc_pos(t_stack *stk, t_node *n)
 {
-	// printf("the pos is : %f------------------------------------------------------------------------------------------->\n", calc_pos(stk, n->target));
-	printf("\nthe %d/%d = %f\n", n->index,(stk_length(stk)),(float)n->index / (float) stk_length(stk));
 	return ((float)n->index / (float) stk_length(stk));
 }
 

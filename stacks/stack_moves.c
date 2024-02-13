@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 19:46:04 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:40:49 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,6 @@ void rev_rotate(t_stack *stk, char c)
     current->previous = NULL;
     stk->tail = current;
     stk_push(stk, value);
-    // update_index(stk);
-   // printf("rra\n");
 }
 
 
@@ -136,8 +134,6 @@ void push_head(t_stack *dest, t_stack *src, char flag)
         printf("pb\n");
     stk_push(dest, src->head->content);
     stk_pop(src);
-    // if(stk_length(src) > 0)
-    // printf("reached here --------<><><><><>\n");
 }
 
 

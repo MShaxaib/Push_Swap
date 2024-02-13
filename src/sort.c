@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 20:49:57 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/13 21:13:22 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:40:41 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void not_sorted(t_stack *stk, t_node *iter)
 		diff = iter->index + 1;
 		while(i < diff)
 		{
-			printf("diff = %d\n", diff);
 			rotate_stack(stk, 'b');
 			i++;
 		}

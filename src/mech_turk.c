@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:09:07 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/13 19:09:08 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:40:18 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 				current_src = current_src->previous;
 			}
 		min_node = smallest_weight(src_stk);
-		printf("the cheapest node is :%d, its target is %d\n", min_node->content, min_node->target->content);
 		put_to_top(min_node, src_stk, dest_stk, 1);
 		push_head(dest_stk, src_stk ,'b');
 	}
@@ -142,7 +141,6 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 
 	else if (src_is_a == 0)
 	{
-		printf("reached here ----------------------------------------------------->\n");
 		current_src = src_stk->head;
 		while(current_src != NULL)
 		{
@@ -155,22 +153,3 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 		push_head(dest_stk, src_stk, 'a');
 	}
 }
-
-	// t_node *a_head;
-	// t_node *b_head;
-	// a_head = src_stk->head;
-	// b_head = dest_stk->head;
-
-	// 	printf("stack a in beginning					stack b in beginning\n");
-	// 	while(a_head != NULL)
-	// 	{
-	// 		if (a_head != NULL)
-	// 			printf("%d							",a_head->content);
-	// 		if (b_head != NU LL)
-	// 		{
-	// 			printf("%d", b_head->content);
-	// 			b_head = b_head->previous;
-	// 		}
-	// 		a_head = a_head ->previous;
-	// 		printf("\n");
-	// 	}
