@@ -9,7 +9,7 @@ HEADER_SRCS	=	push_swap.h
 HEADER_DIR	=	src/
 HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
 
-MPATH_SRCS	=	push_swap.c main.c Parsing.c ps_getcharlist.c push_swap_utils.c mech_turk.c mech_turk_utils.c
+MPATH_SRCS	=	push_swap.c main.c Parsing.c ps_getcharlist.c push_swap_utils.c mech_turk.c mech_turk_utils.c sort.c
 MPATH_DIR	=	src/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)

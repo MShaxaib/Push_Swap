@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/09 17:19:12 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:01:28 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,10 @@ int calculate_cost(int src_idx, int target_idx, t_stack *src_stk, t_stack *targe
 void put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int src_is_a);
 t_node *smallest_weight(t_stack *stk);
 // int above_median(src_idx, target_idx);
+
+// SORT
+void sort_stack(t_stack *stk);
+void not_sorted(t_stack *stk, t_node *iter);
+
 
 #endif
