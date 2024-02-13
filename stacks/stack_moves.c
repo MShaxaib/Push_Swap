@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 17:23:58 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/13 07:39:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void rev_rotate(t_stack *stk, char c)
     current->previous = NULL;
     stk->tail = current;
     stk_push(stk, value);
-    update_index(stk);
+    // update_index(stk);
    // printf("rra\n");
 }
 
