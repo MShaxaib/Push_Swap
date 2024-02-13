@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 21:06:04 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:11:17 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void push_swap(t_stack *stk_a,t_stack *stk_b)
 	sort_three(stk_a);
 	while (stk_length(stk_b) != 0 )
 		mechanical_turk(stk_b, stk_a, 0);
-	sort_stack(stk_b);
+	sort_stack(stk_a);
 }
