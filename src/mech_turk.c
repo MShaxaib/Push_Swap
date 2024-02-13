@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mech_turk.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/13 19:09:07 by mshazaib          #+#    #+#             */
+/*   Updated: 2024/02/13 19:09:08 by mshazaib         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -109,15 +121,10 @@ t_node *smallest_weight(t_stack *stk)
 void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 {
 	t_node  *current_src;
-	// t_node  *current_dest;
 	t_node *min_node;
 
 	min_node = NULL;
 	current_src = src_stk->head;
-	// current_dest = dest_stk->head;
-
-	
-
 	if(src_is_a == 1)
 	{
 		while(current_src != NULL)
