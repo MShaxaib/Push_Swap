@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 20:49:57 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/14 04:44:01 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/14 19:32:04 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void not_sorted(t_stack *stk, t_node *iter)
 	int diff;
 
 	i = 0;
-	if((float)(iter->index) / (float)stk_length(stk) <= 0.5 )
+	if((float)(iter->index) / (float)stk_length(stk) >= 0.5 )
 	{
 		diff = iter->index + 1;
 		while(i < diff)
 		{
-			rotate_stack(stk, 'b');
+			rotate_stack(stk, 'a');
 			i++;
 		}
 	}
@@ -33,7 +33,7 @@ void not_sorted(t_stack *stk, t_node *iter)
 		diff = ((stk_length(stk) - 1) - iter->index);
 		while(i < diff)
 		{
-			rev_rotate(stk, 'b');
+			rev_rotate(stk, 'a');
 			i++;
 		}
 	}

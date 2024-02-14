@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/14 04:39:14 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/14 19:39:26 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ int main(int argc, char **argv)
         {
             b = create_stack_b(a, list_size);            
             push_swap(a, b);    
-            printf("\n----------------------\nStack after Push swap\n\n");
-            pstk(a);
+            // printf("\n----------------------\nStack after Push swap\n\n");
+            // pstk(a);
         }
-            printf("Moves : %d\n", _moves_);
+            // printf("Moves : %d\n", _moves_);
         // destroy_stacks(&a, &b, list_size);
     }
     return(0);
