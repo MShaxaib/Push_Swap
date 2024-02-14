@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 21:40:49 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/14 04:34:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 ! To be done
 
 */
+int _moves_ = 0;
 
 void sa(t_stack *stk_a)
 {
@@ -47,6 +48,7 @@ void sa(t_stack *stk_a)
         printf("sa\n");
     }
     update_index(stk_a);
+    _moves_++;
 }
 
 void sb(t_stack *stk_b)
@@ -62,6 +64,7 @@ void sb(t_stack *stk_b)
         printf("sb\n");
     }
     update_index(stk_b);
+    _moves_++;
 }
 
 void ss(t_stack *stk_a, t_stack *stk_b)
@@ -69,6 +72,7 @@ void ss(t_stack *stk_a, t_stack *stk_b)
     sa(stk_a);
     sb(stk_b);
     printf("ss\n");
+    _moves_++;
 }
 
 /// @brief Rotates the stack up shifting every node up by 1
@@ -92,6 +96,7 @@ void rotate_stack(t_stack *stk, char c)
     stk->tail->previous = temp;
     stk->tail = stk->tail->previous;
     update_index(stk);
+    _moves_++;
 }
 /// @brief Rotates the stack down shifting every node down by 1
 /// @param stk 
@@ -117,6 +122,7 @@ void rev_rotate(t_stack *stk, char c)
     current->previous = NULL;
     stk->tail = current;
     stk_push(stk, value);
+    _moves_++;
 }
 
 
@@ -134,6 +140,7 @@ void push_head(t_stack *dest, t_stack *src, char flag)
         printf("pb\n");
     stk_push(dest, src->head->content);
     stk_pop(src);
+    _moves_++;
 }
 
 
@@ -141,5 +148,6 @@ void rrr(t_stack *stk_a, t_stack *stk_b)
 {
     rev_rotate(stk_a, '2');
     rev_rotate(stk_b, 'n');
+    _moves_++;
 }
 

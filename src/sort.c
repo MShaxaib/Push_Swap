@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 20:49:57 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/13 21:40:41 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/14 04:44:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void sort_stack(t_stack *stk)
 		else
 		{
 			not_sorted(stk, iter);
+			printf("the point of break is this %d------------------------>\n", iter->content);
 			break;	
 		}
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 21:39:45 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/14 04:39:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ DONE:
 
 */
 
-
  void pstk(t_stack *stk)
  {
     t_node *iter;
 
     iter = stk->head;
     while(iter != NULL)
+    {
+        printf("|%d|\n", iter->content);
         iter = iter->previous;
+    }
  }
  
 int main(int argc, char **argv)
@@ -67,8 +69,12 @@ int main(int argc, char **argv)
         {
             b = create_stack_b(a, list_size);            
             push_swap(a, b);    
+            printf("\n----------------------\nStack after Push swap\n\n");
+            pstk(a);
         }
+            printf("Moves : %d\n", _moves_);
         // destroy_stacks(&a, &b, list_size);
     }
+    return(0);
 }
 

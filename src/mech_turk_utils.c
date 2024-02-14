@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mech_turk_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 21:40:06 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/14 04:49:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int
 			put_a_to_top(src_stk, cheapest_node, 1);
 		else
 			put_a_to_top(src_stk, cheapest_node, 0);
-		if (calc_pos(dest_stk, cheapest_node) <= 0.5)
+		if (calc_pos(dest_stk, cheapest_node->target) <= 0.5)
 			put_b_to_top(dest_stk, cheapest_node->target, 1);
 		else
 			put_b_to_top(dest_stk, cheapest_node->target, 0);
@@ -91,7 +91,7 @@ void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int
 				put_b_to_top(src_stk, cheapest_node, 1);
 		else
 				put_b_to_top(src_stk, cheapest_node, 0);
-		if (calc_pos(dest_stk, cheapest_node) <= 0.5)				
+		if (calc_pos(dest_stk, cheapest_node->target) <= 0.5)				
 				put_a_to_top(dest_stk, cheapest_node->target, 1);
 		else
 				put_a_to_top(dest_stk, cheapest_node->target, 0);

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 12:32:25 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/14 04:32:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #include <stdio.h>
 
 //Stacks and structs
+
+//! GLOBAL VAR TO BE REMOVED
+extern int _moves_;
 
 typedef struct node
 {
