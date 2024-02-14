@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/14 19:37:15 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:37:49 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    put_a_to_top(t_stack *a, t_node *n,int rot)
 			}
 			else if (rot == 0)
 			{
-				i = n->index;
+				i = stk_length(a) - n->index;
 				while (i != 0)
 				{
 					rev_rotate(a, 'a');
@@ -58,7 +58,7 @@ void	put_b_to_top(t_stack *b, t_node *n, int rot)
 		}
 		else if (rot == 0)
 			{
-				i = n->index;
+				i = stk_length(b) - n->index;
 				while(i != 0)
 				{	
 					rev_rotate(b, 'b');
@@ -83,7 +83,7 @@ void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int
 			put_a_to_top(src_stk, cheapest_node, 0);
 		else
 			put_a_to_top(src_stk, cheapest_node, 1);
-		if (calc_pos(dest_stk, cheapest_node) >= 0.5)
+		if (calc_pos(dest_stk, cheapest_node->target) >= 0.5)
 			put_b_to_top(dest_stk, cheapest_node->target, 0);
 		else
 			put_b_to_top(dest_stk, cheapest_node->target, 1);
@@ -94,7 +94,7 @@ void  put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk, int
 			put_b_to_top(src_stk, cheapest_node, 0);
 		else
 			put_b_to_top(src_stk, cheapest_node, 1);
-		if (calc_pos(dest_stk, cheapest_node) >= 0.5)				
+		if (calc_pos(dest_stk, cheapest_node->target) >= 0.5)				
 			put_a_to_top(dest_stk, cheapest_node->target, 0);
 		else
 			put_a_to_top(dest_stk, cheapest_node->target, 1);

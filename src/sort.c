@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 20:49:57 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/14 19:32:04 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:22:19 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void sort_stack(t_stack *stk)
 		else
 		{
 			not_sorted(stk, iter);
-			printf("the point of break is this %d------------------------>\n", iter->content);
 			break;	
 		}
 	}
