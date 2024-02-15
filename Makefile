@@ -1,6 +1,6 @@
 NAME = push_swap
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror -g3
+FLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
 
 
@@ -24,14 +24,14 @@ FUNC_DIR	=	Utils/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS	= -Wall -Werror -Wextra
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):		$(OBJ_F) $(OBJ_M) $(OBJ_B)
 				@$(CC) ${CFLAGS} $(OBJ_F) $(OBJ_M) $(OBJ_B) -o $(NAME)
-				@echo -e "$(GREEN)$(NAME) created!$(DEFAULT)"
+				@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 all:			$(NAME)
 
@@ -39,11 +39,11 @@ clean:
 				@$(RM) $(OBJ_M)
 				@$(RM) $(OBJ_F)
 				@$(RM) $(OBJ_B)
-				@echo -e "$(YELLOW)object files deleted!$(DEFAULT)"
+				@echo "$(YELLOW)object files deleted!$(DEFAULT)"
 
 fclean:			clean
 				@$(RM) $(NAME)
-				@echo -e "$(RED)all deleted!$(DEFAULT)"
+				@echo "$(RED)all deleted!$(DEFAULT)"
 
 re:				fclean all
 
