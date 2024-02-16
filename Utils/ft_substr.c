@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:51:37 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/08 15:23:46 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 19:46:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*str;
-	size_t		s_len;
+	char	*str;
+	size_t	s_len;
 
 	if (!s)
 		return (NULL);

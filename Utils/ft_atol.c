@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:20:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 05:21:02 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 19:45:37 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *str)
 {
-	int			i;
-	long long	sgn;
-	long long	num;
+	int i;
+	long long sgn;
+	long long num;
 
 	i = 0;
 	num = 0;

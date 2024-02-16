@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:34:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 13:56:59 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 19:45:49 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	**fill_list(char *arg, int ctr)
 			begin++;
 		}
 		end = set_end(arg, begin);
-		char_list[i] = ft_substr(arg, begin, (size_t) end - begin);
+		char_list[i] = ft_substr(arg, begin, (size_t)end - begin);
 		begin = end;
 		i++;
 	}
