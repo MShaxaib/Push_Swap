@@ -3,43 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/14 22:32:48 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:33:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/* 
-TO BE DONE:
-    ^   rotate each element and its target node to the top of each of their respective stacks
-    ^   
-
-    
-
-DOING:
-    
-DONE:
-   * 1. Create both stacks and test out the moves and print moves as well as the values
-   * 2. Start with the actual alorithm
-   * 3. Calculute the target node 
-   * 4. Calculate the weight 
-        ^ needs to be optomized 
-
-*/
-
- void pstk(t_stack *stk)
- {
-    t_node *iter;
-
-    iter = stk->head;
-    while(iter != NULL)
-    {
-        printf("|%d|\n", iter->content);
-        iter = iter->previous;
-    }
- }
  
 int main(int argc, char **argv)
 {
@@ -55,7 +26,7 @@ int main(int argc, char **argv)
     else
         num_list = validator(getcharlist(++argv, argc, &list_size), argc - 1, &list_size);
     if(!num_list)
-        printf("error in num_list\n");
+        return(0);
     if(num_list != NULL)
     {
         if(is_sorted(num_list, list_size) == 1)
@@ -69,11 +40,8 @@ int main(int argc, char **argv)
         {
             b = create_stack_b(a, list_size);            
             push_swap(a, b);    
-            // printf("\n----------------------\nStack after Push swap\n\n");
-            // pstk(a);
+             destroy_stacks(&a, &b, list_size);
         }
-            // printf("Moves : %d\n", _moves_);
-        // destroy_stacks(&a, &b, list_size);
     }
     return(0);
 }

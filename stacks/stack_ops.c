@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 21:41:11 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:24:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ void stk_push(t_stack *stk, int value)
         return ;
     new -> content = value;
     new -> previous = NULL;
-    if(!stk ->head)             // if there are no heads we make the new node the head and the tail
+    if(!stk ->head)
         stk->tail = new;
     else
-    {
-        new -> previous = stk->head;    // if there are nodes we give it the value and set the connection to the already present node
-    } 
+        new -> previous = stk->head;
     stk->head = new;
     update_index(stk);
 }

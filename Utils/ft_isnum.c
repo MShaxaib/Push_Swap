@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 07:08:06 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 07:42:28 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 14:02:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 int	ft_isnum(char *a)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (a)
+	while ((a[i] == '+' || a[i] == '-') && a[i] != '\0')
+		i++;
+	if (a[i] == '\0')
+		return (1);
+	while (a[i] != '\0')
 	{
-		if ((a[i] >= '0' && a[i] <= '9'))
-		{
+		if (!(a[i] >= '0' && a[i] <= '9'))
 			return (1);
-		}
-	i++;
+		i++;
 	}
 	return (0);
 }

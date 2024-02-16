@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/14 04:32:54 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 13:41:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 #include <stdio.h>
 
 //Stacks and structs
-
-//! GLOBAL VAR TO BE REMOVED
-extern int _moves_;
 
 typedef struct node
 {
@@ -57,8 +54,6 @@ void sb(t_stack *stk_b);
 void ss(t_stack *stk_a, t_stack *stk_b);
 void rotate_stack(t_stack *stk, char c);
 void push_head(t_stack *dest, t_stack *src, char flag);
-// void push_a(t_stack *stk_a, t_stack *stk_b);
-// void push_b(t_stack *stk_a, t_stack *stk_b);
 void rev_rotate(t_stack *stk, char c);
 void rrr(t_stack *stk_a, t_stack *stk_b);
 
@@ -70,8 +65,8 @@ int stk_length(t_stack *stk);
 void destroy_stacks(t_stack **a, t_stack **b, int list_size);
 void ft_destroy(t_stack **stk);
 int ft_is_empty(t_stack *stk);
-//test
 
+//test
 void pstk(t_stack *stk);
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mech_turk.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:09:07 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/14 22:32:55 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:13:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ t_node *smallest_weight(t_stack *stk)
 	{
 		if(iter->weight < min_node->weight)
 			min_node = iter;
-		// printf("?%d?\n", min_node->weight);
 		iter = iter->previous;
 	}
 	return(min_node);
@@ -130,17 +129,11 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 			{
 				current_src->target = find_smaller_target(current_src, dest_stk);
 				current_src->weight = calculate_cost(current_src->index, current_src->target->index, src_stk, dest_stk);
-				// printf("|%d|->|%d| _>>>> (%d)\n",current_src->content,current_src->target->content, current_src->weight);
 				current_src = current_src->previous;
 			}
 		min_node = smallest_weight(src_stk);
 		put_to_top(min_node, src_stk, dest_stk, 1);
 		push_head(dest_stk, src_stk ,'b');
-		// printf("\nThis is STACK A\n");
-		// pstk(src_stk);
-		// printf("This is STACK B\n\n");
-		// pstk(dest_stk);
-		// printf("===============================================\n");
 	}
 	else if (src_is_a == 0)
 	{
@@ -149,16 +142,10 @@ void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 		{
 			current_src->target = find_larger_target(current_src,dest_stk);
 			current_src->weight = calculate_cost(current_src->index, current_src->target->index, src_stk, dest_stk);
-		// printf("target for |%d| (%d)\n",current_src->content, current_src->weight);
 			current_src = current_src->previous;
 		}
 		min_node = smallest_weight(src_stk);
 		put_to_top(min_node, src_stk, dest_stk, 0);
 		push_head(dest_stk, src_stk, 'a');
-		// printf("\nThis is STACK A\n");
-		// pstk(src_stk);
-		// printf("This is STACK B\n\n");
-		// pstk(dest_stk);
 	}
-
 }

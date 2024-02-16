@@ -6,17 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 04:30:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 09:38:09 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 14:17:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-trimming and counting the number of non-space characters in a string,
-as well as functions for counting the total number of non-space characters
-in a list of strings and creating a list of characters.
-*/
 
 /// @brief counts for all the non-space characters in the string
 /// @param args raw user input 
@@ -31,29 +25,27 @@ int trim_counter(char *args)
     index = 0;
     spaces = 0;
     numbers = 0;
-    
-
     while(args[index] != '\0')
     {
         if(args[index] == ' ' || (args[index] >= 9 && args[index] <= 13))
-        {
-            spaces++;
-            numbers++;
-        }
+            {
+                spaces++;
+                numbers++;
+            }
         else
-        {
-            while ((args[index] != ' ' && !(args[index] >= 9 && args[index] <= 13)) && args[index] != '\0')
-                index++;
-            numbers++;
-        }
+            {
+                while ((args[index] != ' ' && !(args[index] >= 9 && args[index] <= 13)) && args[index] != '\0')
+                    index++;
+                numbers++;
+            }
     if(spaces == index)
         return (-1);
     else
         break;
     }
-    
     return(numbers);
 }
+
 int num_count(int argc, char **argv)
 {
     int ctr;

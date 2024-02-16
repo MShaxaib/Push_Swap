@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 10:53:31 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 14:16:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void print_error(char **str, int *num_list)
         free(str);
     if(num_list)
         free(num_list);
-    write(2, "Error somewhere in parsing\n", 6);
+    write(2, "Error\n", 6);
 }
 
 
@@ -71,13 +71,13 @@ int *convert_numlist(char **str, int *c)
         return(NULL);
     while (i < (*c))
     {
-        if (ft_isnum(str[i]) == 0)
+        if (ft_isnum(str[i]) == 1)
         {
             free(nums);
             return(NULL);
         }
-        // check for int max
-        
+        if(ft_atol(str[i]) > INT_MAX || ft_atol(str[i]) < INT_MIN)
+            return(free(nums), NULL);
         nums[i] = ft_atol(str[i]);
         i++;
     }
@@ -98,28 +98,17 @@ int *validator(char **str, int joined, int *listsize)
      num_list = 0;
 
     if (joined == 1)
-    {
         char_list = ft_split(*str, listsize);
-    }
     else
     {
-         char_list = str;
-         if(char_list == NULL)
-            print_error(char_list, num_list);
+        char_list = str;
+        if(char_list == NULL)
+            return(print_error(char_list, num_list), NULL);
     }
     num_list = convert_numlist(char_list, listsize);
-    
     if(!num_list)
         return(print_error(char_list, num_list), NULL);
     if(check_duplicates(num_list, listsize))
         return(print_error(char_list, num_list), NULL);
     return (free_split(char_list), num_list);
-
-    return(num_list);
 }
-
-
-
-//check duplicate()
-//convert to numlist()
-//error()

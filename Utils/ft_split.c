@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:34:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 09:24:55 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/16 13:56:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,75 +95,3 @@ char	**ft_split(char *arg, int *list_size)
 	char_list = fill_list(arg, *list_size);
 	return (char_list);
 }
-// int word_length(char *argv, char delim)
-// {
-// 	int i;
-// 	int word_len;
-	
-// 	i = -1;
-// 	word_len = 0;
-// 	while(argv[++i] && argv[i] != delim)
-// 		word_len++;
-// 	return (word_len);	
-// }
-
-// int word_count(char *argv, char delim)
-// {
-// 	int i;
-// 	int j;
-// 	int ctr;
-
-// 	i = 0;
-// 	ctr = 0;
-
-// 	while(argv[i])
-// 	{
-// 		if(argv[i] != delim)
-// 		{
-// 			j = 1;
-// 			while(argv[j] != delim && argv[i])
-// 				j++;
-// 			i = j;
-// 			ctr++;
-// 		}
-// 		if(argv[i])
-// 			i++;
-// 	}
-// 	return(ctr);
-// }
-
-// void free_split(char **splitted_list, int word_ctr)
-// {
-// 	while (word_ctr--)
-// 		free(splitted_list[word_ctr]);
-// 	free(splitted_list);
-// }
-
-// char **split(char *argv, char delim)
-// {
-// 	int i;
-// 	int j;
-// 	int word_ctr;
-// 	char **splited_list;
-
-// 	i = -1;
-// 	j = 0;
-	
-// 	if(!argv)
-// 		return(NULL);
-// 	word_ctr = word_count(argv, delim);
-// 	splited_list = (char **)malloc(sizeof(char *) * (word_ctr + 1));
-// 	if(!splited_list)
-// 		return(NULL);
-// 	splited_list[word_ctr] = NULL;
-// 	while(++i < word_ctr)
-// 	{
-// 		while (argv[j] == delim)
-// 			j++;
-// 		splited_list[i] = ft_substr(argv, j, word_length((argv + j), delim));
-// 		if(!splited_list[i])
-// 			return(free_split(splited_list, word_ctr), NULL);
-// 		j += word_length((argv + 1), delim);
-// 	}
-// 	return(splited_list);		
-// }
