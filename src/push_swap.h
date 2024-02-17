@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 19:56:37 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/17 22:36:44 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../Utils/Utils.h"
 # include "../stacks/ft_stack.h"
+# include "../GetNextLine/get_next_line.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -47,5 +48,6 @@ void	set_rotations(t_node *min_node, t_stack *src_stk, t_stack *dest_stk);
 // SORT
 void	sort_stack(t_stack *stk);
 void	not_sorted(t_stack *stk, t_node *iter);
+int 	read_moves(t_stack *src_stk, t_stack *dest_stk, char *list);
 
 #endif

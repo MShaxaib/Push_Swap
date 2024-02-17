@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:43:43 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:48:33 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 21:35:19 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
 char	*ft_join(int argc, char **argv);
 void	free_split(char **p);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif
