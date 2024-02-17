@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:20:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 20:48:47 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:42:06 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *str)
 {
-	int i;
-	long long sgn;
-	long long num;
+	int			i;
+	long long	sgn;
+	long long	num;
 
 	i = 0;
 	num = 0;

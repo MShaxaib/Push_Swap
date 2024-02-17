@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:45:02 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 15:55:15 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_node	*find_min(t_stack *stk);
 void	mechanical_turk(t_stack *a, t_stack *b, int src_is_a);
 t_node	*find_smaller_target(t_node *current_a, t_stack *b);
 t_node	*find_larger_target(t_node *current_src, t_stack *a);
-int		calculate_cost(int src_idx, int target_idx, t_stack *src_stk,
+int		cal_cos(int src_idx, int target_idx, t_stack *src_stk,
 			t_stack *target_stk);
 void	put_to_top(t_node *cheapest_node, t_stack *src_stk, t_stack *dest_stk,
 			int src_is_a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:44:58 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:39:27 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	sort_three(t_stack *stk)
 		sa(stk);
 	update_index(stk);
 }
+
 void	push_swap(t_stack *stk_a, t_stack *stk_b)
 {
 	while (stk_length(stk_a) > 3)

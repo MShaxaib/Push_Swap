@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:45:15 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:35:02 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void			rotate_stack(t_stack *stk, char c);
 void			push_head(t_stack *dest, t_stack *src, char flag);
 void			rev_rotate(t_stack *stk, char c);
 void			rrr(t_stack *stk_a, t_stack *stk_b);
+void			rr(t_stack *stk_a, t_stack *stk_b);
 
 void			update_index(t_stack *stk);
 int				stk_length(t_stack *stk);

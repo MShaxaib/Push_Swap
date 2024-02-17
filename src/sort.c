@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 20:49:57 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/16 19:45:08 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:39:53 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	not_sorted(t_stack *stk, t_node *iter)
 
 void	sort_stack(t_stack *stk)
 {
-	t_node *iter;
+	t_node	*iter;
 
 	iter = find_min(stk);
 	if (iter->index)

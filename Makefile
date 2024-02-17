@@ -14,7 +14,7 @@ MPATH_DIR	=	src/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)
 
-BPATH_SRCS  =	init_stack.c stack_moves.c stack_ops.c stack_utils.c destroy_stk.c
+BPATH_SRCS  =	init_stack.c push_moves.c stack_ops.c stack_utils.c destroy_stk.c rotate_moves.c
 BPATH_DIR	=	stacks/
 BPATH		=	$(addprefix $(BPATH_DIR), $(BPATH_SRCS)) 
 OBJ_B		=	$(BPATH:.c=.o)

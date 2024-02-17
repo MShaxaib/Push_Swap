@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_getcharlist.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 04:30:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:44:50 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:56:54 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ int	trim_counter(char *args)
 		}
 		if (spaces == index)
 			return (-1);
-		else
-			break ;
 	}
 	return (numbers);
 }

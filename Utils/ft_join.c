@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:23:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:45:46 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:43:22 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	skip_spaces(char **argv, int i, int j)
 		j++;
 	return (j);
 }
+
 void	ft_copy(char *argv, char *list, int *argv_index, int *list_index)
 {
 	int	lst_index;
@@ -66,8 +67,6 @@ char	*copytolist(char **argv, int argc, int list_len)
 	return (list);
 }
 
-/// @brief gets the length of the string with 1 space in between them to use for malloc later on
-
 int	ft_listlen(char **argv)
 {
 	int	len;
@@ -98,8 +97,8 @@ int	ft_listlen(char **argv)
 
 char	*ft_join(int argc, char **argv)
 {
-	char *joined;
-	int list_len;
+	char	*joined;
+	int		list_len;
 
 	list_len = ft_listlen(argv);
 	joined = copytolist(argv, argc, list_len);

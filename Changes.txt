@@ -1,1 +1,0 @@
-in mech_turk.c removed the total cost variable and returing the cost directly

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 21:00:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 12:41:33 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
 void	stk_push(t_stack *stk, int value)
-{	
+{
 	t_node	*new;
 
 	new = malloc(sizeof(t_node));

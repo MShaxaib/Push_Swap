@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mech_turk.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:09:07 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/16 19:48:13 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/17 15:56:59 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_node	*find_larger_target(t_node *current_src, t_stack *a)
 /// @param src_stk Stack A
 /// @param target_stk Stack B
 /// @return
-int	calculate_cost(int src_idx, int target_idx, t_stack *src_stk,
+int	cal_cos(int src_idx, int target_idx, t_stack *src_stk,
 		t_stack *target_stk)
 {
 	double	src_pos;
@@ -113,32 +113,30 @@ void	mechanical_turk_ext(t_stack *src_stk, t_stack *dest_stk, int i)
 /// @brief implementation of the mechanical turk algorithm
 /// @param a (to be changed to source) the source stack to be pushed from
 /// @param b (to be changed to dest) the destination to push to
-void	mechanical_turk(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
+void	mechanical_turk(t_stack *s_stk, t_stack *d_stk, int src_is_a)
 {
-	t_node	*current_src;
+	t_node	*c_s;
 
-	current_src = src_stk->head;
+	c_s = s_stk->head;
 	if (src_is_a == 1)
 	{
-		while (current_src != NULL)
+		while (c_s != NULL)
 		{
-			current_src->target = find_smaller_target(current_src, dest_stk);
-			current_src->weight = calculate_cost(current_src->index,
-					current_src->target->index, src_stk, dest_stk);
-			current_src = current_src->previous;
+			c_s->target = find_smaller_target(c_s, d_stk);
+			c_s->weight = cal_cos(c_s->index, c_s->target->index, s_stk, d_stk);
+			c_s = c_s->previous;
 		}
-		mechanical_turk_ext(src_stk, dest_stk, 1);
+		mechanical_turk_ext(s_stk, d_stk, 1);
 	}
 	else if (src_is_a == 0)
 	{
-		current_src = src_stk->head;
-		while (current_src != NULL)
+		c_s = s_stk->head;
+		while (c_s != NULL)
 		{
-			current_src->target = find_larger_target(current_src, dest_stk);
-			current_src->weight = calculate_cost(current_src->index,
-					current_src->target->index, src_stk, dest_stk);
-			current_src = current_src->previous;
+			c_s->target = find_larger_target(c_s, d_stk);
+			c_s->weight = cal_cos(c_s->index, c_s->target->index, s_stk, d_stk);
+			c_s = c_s->previous;
 		}
-		mechanical_turk_ext(src_stk, dest_stk, 0);
+		mechanical_turk_ext(s_stk, d_stk, 0);
 	}
 }
