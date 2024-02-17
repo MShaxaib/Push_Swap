@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:35:02 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:48:39 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct stack
 {
 	t_node		*head;
 	t_node		*tail;
-
+	int			rot_ctr;
+	int			rev_rot_ctr;
 }				t_stack;
 
 // STACK INITIAZATION

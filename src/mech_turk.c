@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:09:07 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/17 15:56:59 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/17 21:09:49 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,22 @@ void	mechanical_turk_ext(t_stack *src_stk, t_stack *dest_stk, int i)
 {
 	t_node	*min_node;
 
-	min_node = NULL;
+	dest_stk->rot_ctr = 0;
+	dest_stk->rev_rot_ctr = 0;
+	src_stk->rot_ctr = 0;
+	src_stk->rev_rot_ctr = 0;
 	if (i == 1)
 	{
 		min_node = smallest_weight(src_stk);
-		put_to_top(min_node, src_stk, dest_stk, 1);
+		set_rotations(min_node, src_stk, dest_stk);
+		put_to_top(src_stk, dest_stk, 1);
 		push_head(dest_stk, src_stk, 'b');
 	}
 	else
 	{
 		min_node = smallest_weight(src_stk);
-		put_to_top(min_node, src_stk, dest_stk, 0);
+		set_rotations(min_node, src_stk, dest_stk);
+		put_to_top(src_stk, dest_stk, 0);
 		push_head(dest_stk, src_stk, 'a');
 	}
 }
