@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 22:36:44 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:14:53 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	set_rotations(t_node *min_node, t_stack *src_stk, t_stack *dest_stk);
 // SORT
 void	sort_stack(t_stack *stk);
 void	not_sorted(t_stack *stk, t_node *iter);
-int 	read_moves(t_stack *src_stk, t_stack *dest_stk, char *list);
+int 	read_moves(t_stack *src_stk, t_stack *dest_stk);
 
 #endif

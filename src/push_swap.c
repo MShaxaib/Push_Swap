@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:39:27 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:12:03 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort_three(t_stack *stk)
 	else if (max_value == stk->head->previous)
 		rev_rotate(stk, 'a');
 	if (stk->head->content > stk->head->previous->content)
-		sa(stk);
+		sa(stk, 1);
 	update_index(stk);
 }
 

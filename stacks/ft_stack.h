@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 19:48:39 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 14:37:53 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct stack
 
 // STACK INITIAZATION
 t_stack			*create_stack_a(int *num_list, int list_size);
-t_stack			*create_stack_b(t_stack *stk_a, int list_size);
+t_stack			*create_stack_b(t_stack *stk_a, int list_size, int c_flag);
 t_stack			*init_stack(void);
 
 // STACK OPERATIONS
@@ -49,14 +49,14 @@ void			stk_push(t_stack *stk, int value);
 void			stk_pop(t_stack *stk);
 
 // STACK MOVES
-void			sa(t_stack *stk_a);
-void			sb(t_stack *stk_b);
-void			ss(t_stack *stk_a, t_stack *stk_b);
+void			sa(t_stack *stk_a, int c_flag);
+void			sb(t_stack *stk_b, int c_flag);
+void			ss(t_stack *stk_a, t_stack *stk_b, int c_flag);
 void			rotate_stack(t_stack *stk, char c);
 void			push_head(t_stack *dest, t_stack *src, char flag);
 void			rev_rotate(t_stack *stk, char c);
-void			rrr(t_stack *stk_a, t_stack *stk_b);
-void			rr(t_stack *stk_a, t_stack *stk_b);
+void			rrr(t_stack *stk_a, t_stack *stk_b, int c_flag);
+void			rr(t_stack *stk_a, t_stack *stk_b, int c_flag);
 
 void			update_index(t_stack *stk);
 int				stk_length(t_stack *stk);

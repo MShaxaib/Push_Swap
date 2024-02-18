@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:42 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:41:33 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:41:16 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,23 @@ t_stack	*create_stack_a(int *num_list, int list_size)
 	return (a);
 }
 
-t_stack	*create_stack_b(t_stack *stk_a, int list_size)
+t_stack	*create_stack_b(t_stack *stk_a, int list_size, int c_flag)
 {
 	t_stack	*b;
 
 	b = init_stack();
-	push_head(b, stk_a, 'b');
-	if (list_size > 4)
-		push_head(b, stk_a, 'b');
-	return (b);
+	if(c_flag == 1)
+		{
+			push_head(b, stk_a, 'b');
+			if (list_size > 4)
+				push_head(b, stk_a, 'b');
+			return (b);	
+		}
+	else
+		{
+			push_head(b, stk_a, '0');
+				if (list_size > 4)
+					push_head(b, stk_a, '0');
+				return (b);	
+		}
 }

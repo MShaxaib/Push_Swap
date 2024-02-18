@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 12:44:34 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/17 12:58:16 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:14:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,31 @@ void	rev_rotate(t_stack *stk, char c)
 	stk_push(stk, value);
 }
 
-void	rr(t_stack *stk_a, t_stack *stk_b)
+void	rr(t_stack *stk_a, t_stack *stk_b, int c_flag)
 {
-	rotate_stack(stk_a, '2');
-	rotate_stack(stk_b, 'n');
+	if(c_flag == 1)
+	{
+		rotate_stack(stk_a, '2');
+		rotate_stack(stk_b, 'n');
+	}
+	else
+	{
+		rotate_stack(stk_a, '0');
+		rotate_stack(stk_b, '0');
+	}
+		
 }
 
-void	rrr(t_stack *stk_a, t_stack *stk_b)
+void	rrr(t_stack *stk_a, t_stack *stk_b, int c_flag)
 {
-	rev_rotate(stk_a, '2');
-	rev_rotate(stk_b, 'n');
+	if(c_flag == 1)
+		{
+			rev_rotate(stk_a, '2');
+			rev_rotate(stk_b, 'n');	
+		}
+	else
+		{
+			rev_rotate(stk_a, '0');
+			rev_rotate(stk_b, '0');	
+		}
 }

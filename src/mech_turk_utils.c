@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:08:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 21:11:45 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:20:59 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ void	put_to_top(t_stack *src_stk, t_stack *dest_stk, int src_is_a)
 {
 	while (src_stk->rot_ctr && dest_stk->rot_ctr)
 	{
-		rr(src_stk, dest_stk);
+		rr(src_stk, dest_stk, 1);
 		src_stk->rot_ctr--;
 		dest_stk->rot_ctr--;
 	}
 	while (src_stk->rev_rot_ctr && dest_stk->rev_rot_ctr)
 	{
-		rrr(src_stk, dest_stk);
+		rrr(src_stk, dest_stk, 1);
 		src_stk->rev_rot_ctr--;
 		dest_stk->rev_rot_ctr--;
 	}

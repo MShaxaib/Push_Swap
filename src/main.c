@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 16:03:47 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:41:55 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	checkandsend(int *num_list, int list_size)
 			return (free(num_list));
 		a = create_stack_a(num_list, list_size);
 		if (list_size == 2)
-			sa(a);
+			sa(a, 1);
 		if (list_size == 3)
 			sort_three(a);
 		if (list_size > 3)
 		{
-			b = create_stack_b(a, list_size);
+			b = create_stack_b(a, list_size, 1);
 			push_swap(a, b);
 			destroy_stacks(&a, &b, list_size);
 		}
