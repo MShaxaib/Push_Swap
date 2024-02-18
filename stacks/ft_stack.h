@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 14:37:53 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:38:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct stack
 
 // STACK INITIAZATION
 t_stack			*create_stack_a(int *num_list, int list_size);
-t_stack			*create_stack_b(t_stack *stk_a, int list_size, int c_flag);
+t_stack			*create_stack_b(t_stack *stk_a, int list_size);
 t_stack			*init_stack(void);
 
 // STACK OPERATIONS
@@ -62,8 +62,8 @@ void			update_index(t_stack *stk);
 int				stk_length(t_stack *stk);
 
 // destroying
-void			destroy_stacks(t_stack **a, t_stack **b, int list_size);
-void			ft_destroy(t_stack **stk);
+void			destroy_stacks(t_stack *a, t_stack *b, int list_size);
+void			ft_destroy(t_stack *stk);
 int				ft_is_empty(t_stack *stk);
 
 // test

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 13:41:55 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:44:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 void	checkandsend(int *num_list, int list_size)
 {
 	t_stack	*a;
@@ -28,10 +27,10 @@ void	checkandsend(int *num_list, int list_size)
 			sort_three(a);
 		if (list_size > 3)
 		{
-			b = create_stack_b(a, list_size, 1);
+			b = create_stack_b(a, list_size);
 			push_swap(a, b);
-			destroy_stacks(&a, &b, list_size);
 		}
+		destroy_stacks(a, b, list_size);
 	}
 }
 

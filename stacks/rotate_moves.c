@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 12:44:34 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/18 13:14:45 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:53:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	rev_rotate(t_stack *stk, char c)
 	while (current->previous != stk->tail)
 		current = current->previous;
 	current->previous = NULL;
+	free(stk->tail);
 	stk->tail = current;
 	stk_push(stk, value);
 }

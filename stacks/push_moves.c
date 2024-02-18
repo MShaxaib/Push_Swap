@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 14:38:06 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:56:24 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	push_head(t_stack *dest, t_stack *src, char flag)
 {
 	if (!src || !src->head || !dest)
 		return ;
-		if (flag == 'a')
-			printf("pa\n");
-		else if (flag == 'b')
-			printf("pb\n");
-		stk_push(dest, src->head->content);
-		stk_pop(src);
+	if (flag == 'a')
+		printf("pa\n");
+	else if (flag == 'b')
+		printf("pb\n");
+	stk_push(dest, src->head->content);
+	stk_pop(src);
 }

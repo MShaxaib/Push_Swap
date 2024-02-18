@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 21:16:37 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/18 15:21:37 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:00:06 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ int	main(int ac, char **av)
 		a = create_stack_a(num_list, list_size);
 		b = init_stack();
 		read_moves(a, b);
-		destroy_stacks(&a, &b, list_size);
 	}
 	else
 		printf("Error\n");
+	destroy_stacks(a, b, list_size);
 	return (0);
 }

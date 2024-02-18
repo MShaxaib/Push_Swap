@@ -1,8 +1,5 @@
 {
 	"files.associations": {
-		"algorithm": "c",
-		"get_next_line.h": "c",
-		"fcntl.h": "c",
-		"utils.h": "c"
+		"push_swap.h": "c"
 	}
 }

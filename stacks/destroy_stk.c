@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_stk.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:26:59 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:40:20 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:39:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	destroy_stacks(t_stack **a, t_stack **b, int list_size)
+void	destroy_stacks(t_stack *a, t_stack *b, int list_size)
 {
 	ft_destroy(a);
 	if (list_size > 3)
 		ft_destroy(b);
 }
 
-void	ft_destroy(t_stack **stk)
+void	ft_destroy(t_stack *stk)
 {
-	if (!stk || ft_is_empty(*stk))
+	if (stk && !ft_is_empty(stk))
 	{
-		while (!ft_is_empty(*stk))
-			stk_pop(*stk);
+		while (!ft_is_empty(stk))
+			stk_pop(stk);
 	}
-	free(*stk);
-	*stk = NULL;
+	free(stk);
 }
 
 int	ft_is_empty(t_stack *stk)

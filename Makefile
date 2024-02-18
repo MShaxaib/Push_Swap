@@ -1,7 +1,7 @@
 NAME = push_swap
 BONUS_NAME = checker
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
 
 
@@ -35,7 +35,6 @@ BONUS_DIR	=	checker_code/
 BONUS 		=	$(addprefix $(BONUS_DIR), $(BONUS_SRCS))
 OBJ_BONUS	=	$(BONUS:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra
 #COMMANDS
 %.o: %.c $(HEADER) Makefile
 				@${CC} ${CFLAGS} -c $< -o $@
