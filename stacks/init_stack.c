@@ -6,16 +6,18 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:26:07 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:40:33 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:23:36 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-t_stack	*init_stack(void)
+t_stack	*init_stack(int list_size)
 {
 	t_stack	*stk;
 
+	if (list_size < 4)
+		return (NULL);
 	stk = malloc(sizeof(t_stack));
 	if (!stk)
 		return (NULL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:44:46 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 18:53:23 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	is_sorted(int *num_list, int c)
 // frees and prints error
 void	print_error(char **str, int *num_list)
 {
-	if (str)
-		free(str);
+	free_split(str);
 	if (num_list)
 		free(num_list);
 	write(2, "Error\n", 6);
@@ -100,6 +99,7 @@ int	*validator(char **str, int joined, int *listsize)
 		if (char_list == NULL)
 			return (print_error(char_list, num_list), NULL);
 	}
+	// free_split(str);
 	num_list = convert_numlist(char_list, listsize);
 	if (!num_list)
 		return (print_error(char_list, num_list), NULL);

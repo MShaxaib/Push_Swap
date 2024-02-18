@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 12:56:24 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 18:36:18 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	sa(t_stack *stk_a, int c_flag)
 {
 	int	cont;
 
+	if(!stk_a || !stk_a->head)
+		return ;
 	if(c_flag == 1)
 		printf("sa\n");
 	else if (c_flag == 2)
@@ -33,6 +35,8 @@ void	sb(t_stack *stk_b, int c_flag)
 {
 	t_node	*temp;
 
+	if(!stk_b || !stk_b->head)
+		return ;
 	if(c_flag == 1)
 		printf("sb\n");
 	temp = malloc(sizeof(t_node));

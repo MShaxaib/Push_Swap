@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:22:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 12:38:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 18:24:23 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ typedef struct stack
 
 // STACK INITIAZATION
 t_stack			*create_stack_a(int *num_list, int list_size);
-t_stack			*create_stack_b(t_stack *stk_a, int list_size);
-t_stack			*init_stack(void);
+t_stack			*create_stack_b(t_stack *stk_a, int list_size, int c_flag);
+t_stack			*init_stack(int list_size);
 
 // STACK OPERATIONS
 void			stk_push(t_stack *stk, int value);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_stk.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:26:59 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 12:39:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 18:07:58 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_destroy(t_stack *stk)
 			stk_pop(stk);
 	}
 	free(stk);
+	stk = NULL;
 }
 
 int	ft_is_empty(t_stack *stk)
