@@ -6,11 +6,11 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:20:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:42:06 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 long	ft_atol(const char *str)
 {

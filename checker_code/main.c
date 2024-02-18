@@ -6,23 +6,11 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 21:16:37 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/18 18:47:44 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:18:05 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
-
-void	pstk(t_stack *stk)
-{
-	t_node	*iter;
-
-	iter = stk->head;
-	while (iter != NULL)
-	{
-		printf("|%d|\n", iter->content);
-		iter = iter->previous;
-	}
-}
 
 int	is_stk_sorted(t_stack *stk)
 {
@@ -39,7 +27,8 @@ int	is_stk_sorted(t_stack *stk)
 	}
 	return (1);
 }
-int execute_moves(t_stack *src_stk, t_stack *dest_stk, char *list)
+
+int	execute_moves(t_stack *src_stk, t_stack *dest_stk, char *list)
 {
 	if (!ft_strcmp(list, "sa\n"))
 		sa(src_stk, 0);
@@ -65,7 +54,7 @@ int execute_moves(t_stack *src_stk, t_stack *dest_stk, char *list)
 		push_head(src_stk, dest_stk, 'n');
 	else
 		return (free(list), 1);
-	return(free(list),0);
+	return (free(list), 0);
 }
 
 void	read_moves(t_stack *src_stk, t_stack *dest_stk)
@@ -75,17 +64,17 @@ void	read_moves(t_stack *src_stk, t_stack *dest_stk)
 	list = get_next_line(0);
 	while (list != NULL)
 	{
-		if(execute_moves(src_stk, dest_stk, list))
+		if (execute_moves(src_stk, dest_stk, list))
 		{
-			printf("Error\n");
+			write(1, "Error\n", 7);
 			return ;
 		}
 		list = get_next_line(0);
 	}
-	if(is_stk_sorted(src_stk) == 1 && stk_length(dest_stk) == 0)
-		printf("OK\n");
+	if (is_stk_sorted(src_stk) == 1 && stk_length(dest_stk) == 0)
+		write(1, "OK\n", 3);
 	else
-		printf("KO\n");
+		write(1, "KO\n", 3);
 }
 
 int	main(int ac, char **av)
@@ -101,7 +90,7 @@ int	main(int ac, char **av)
 		num_list = validator(++av, 1, &list_size);
 	else
 		num_list = validator(getcharlist(++av, ac, &list_size), ac - 1,
-			&list_size);
+				&list_size);
 	if (num_list)
 	{
 		a = create_stack_a(num_list, list_size);
@@ -109,8 +98,7 @@ int	main(int ac, char **av)
 		read_moves(a, b);
 		destroy_stacks(a, b, list_size);
 	}
-	else 
-		printf("Error\n");
-	free(num_list);
+	else
+		write(1, "Error\n", 6);
 	return (0);
 }

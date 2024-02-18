@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:51:37 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:46:04 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

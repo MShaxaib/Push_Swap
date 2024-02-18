@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:25:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/20 12:27:31 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 int	ft_atoi(const char *str)
 {

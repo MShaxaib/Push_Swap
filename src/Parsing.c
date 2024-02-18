@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:10:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 18:53:23 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:54:50 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	*validator(char **str, int joined, int *listsize)
 		if (char_list == NULL)
 			return (print_error(char_list, num_list), NULL);
 	}
-	// free_split(str);
 	num_list = convert_numlist(char_list, listsize);
 	if (!num_list)
 		return (print_error(char_list, num_list), NULL);

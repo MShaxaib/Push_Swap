@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:29:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 18:36:18 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:16:40 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	sa(t_stack *stk_a, int c_flag)
 {
 	int	cont;
 
-	if(!stk_a || !stk_a->head)
+	if (!stk_a || !stk_a->head)
 		return ;
-	if(c_flag == 1)
-		printf("sa\n");
+	if (c_flag == 1)
+		write(1, "sa\n", 3);
 	else if (c_flag == 2)
-		printf("ss\n");
+		write(1, "ss\n", 3);
 	cont = stk_a->head->content;
 	if (stk_a->head != NULL && stk_a->head->previous != NULL)
 	{
@@ -35,32 +35,32 @@ void	sb(t_stack *stk_b, int c_flag)
 {
 	t_node	*temp;
 
-	if(!stk_b || !stk_b->head)
+	if (!stk_b || !stk_b->head)
 		return ;
-	if(c_flag == 1)
-		printf("sb\n");
+	if (c_flag == 1)
+		write(1, "sb\n", 3);
 	temp = malloc(sizeof(t_node));
 	temp->content = stk_b->head->content;
 	if (stk_b->head != NULL && stk_b->head->previous != NULL)
 	{
 		stk_b->head->content = stk_b->head->previous->content;
-		stk_b->head->previous = temp;;
+		stk_b->head->previous = temp;
 	}
 	update_index(stk_b);
 }
 
 void	ss(t_stack *stk_a, t_stack *stk_b, int c_flag)
 {
-	if(c_flag == 1)
-		{
-			sa(stk_a, 2);
-			sb(stk_b, 0);
-		}
+	if (c_flag == 1)
+	{
+		sa(stk_a, 2);
+		sb(stk_b, 0);
+	}
 	else
-		{
-			sa(stk_a, 0);
-			sb(stk_b, 0);
-		}
+	{
+		sa(stk_a, 0);
+		sb(stk_b, 0);
+	}
 }
 
 /// @brief Pushed the head from dest to src
@@ -72,9 +72,9 @@ void	push_head(t_stack *dest, t_stack *src, char flag)
 	if (!src || !src->head || !dest)
 		return ;
 	if (flag == 'a')
-		printf("pa\n");
+		write(1, "pa\n", 3);
 	else if (flag == 'b')
-		printf("pb\n");
+		write(1, "pb\n", 3);
 	stk_push(dest, src->head->content);
 	stk_pop(src);
 }

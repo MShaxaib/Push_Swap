@@ -6,11 +6,11 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 21:34:24 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/17 21:34:56 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:46 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

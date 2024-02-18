@@ -6,11 +6,11 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 06:03:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:43:32 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:45 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 size_t	ft_strlen(char const *str)
 {

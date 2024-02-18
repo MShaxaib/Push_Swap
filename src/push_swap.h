@@ -6,16 +6,16 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 08:16:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 18:32:57 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:23:31 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../Utils/Utils.h"
+# include "../utils/utils.h"
 # include "../stacks/ft_stack.h"
-# include "../GetNextLine/get_next_line.h"
+# include "../getnextline/get_next_line.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -48,6 +48,6 @@ void	set_rotations(t_node *min_node, t_stack *src_stk, t_stack *dest_stk);
 // SORT
 void	sort_stack(t_stack *stk);
 void	not_sorted(t_stack *stk, t_node *iter);
-void 	read_moves(t_stack *src_stk, t_stack *dest_stk);
+void	read_moves(t_stack *src_stk, t_stack *dest_stk);
 
 #endif

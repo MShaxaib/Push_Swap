@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isnum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 07:08:06 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 19:45:42 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:46 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 int	ft_isnum(char *a)
 {

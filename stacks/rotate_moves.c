@@ -6,7 +6,7 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 12:44:34 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/18 18:08:54 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:17:18 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	rotate_stack(t_stack *stk, char c)
 	if (!stk->head || !stk->head->previous)
 		return ;
 	if (c == 'a')
-		printf("ra\n");
+		write(1, "ra\n", 3);
 	else if (c == 'b')
-		printf("rb\n");
+		write(1, "rb\n", 3);
 	else if (c == '2')
-		printf("rr\n");
+		write(1, "rr\n", 3);
 	temp = stk->head;
 	stk->head = stk->head->previous;
 	temp->previous = NULL;
@@ -46,11 +46,11 @@ void	rev_rotate(t_stack *stk, char c)
 	if (!stk->head || !stk->head->previous)
 		return ;
 	if (c == 'a')
-		printf("rra\n");
+		write(1, "rra\n", 4);
 	else if (c == 'b')
-		printf("rrb\n");
+		write(1, "rrb\n", 4);
 	else if (c == '2')
-		printf("rrr\n");
+		write(1, "rrr\n", 4);
 	current = stk->head;
 	value = stk->tail->content;
 	while (current->previous != stk->tail)
@@ -63,7 +63,7 @@ void	rev_rotate(t_stack *stk, char c)
 
 void	rr(t_stack *stk_a, t_stack *stk_b, int c_flag)
 {
-	if(c_flag == 1)
+	if (c_flag == 1)
 	{
 		rotate_stack(stk_a, '2');
 		rotate_stack(stk_b, 'n');
@@ -73,19 +73,18 @@ void	rr(t_stack *stk_a, t_stack *stk_b, int c_flag)
 		rotate_stack(stk_a, '0');
 		rotate_stack(stk_b, '0');
 	}
-		
 }
 
 void	rrr(t_stack *stk_a, t_stack *stk_b, int c_flag)
 {
-	if(c_flag == 1)
-		{
-			rev_rotate(stk_a, '2');
-			rev_rotate(stk_b, 'n');	
-		}
+	if (c_flag == 1)
+	{
+		rev_rotate(stk_a, '2');
+		rev_rotate(stk_b, 'n');
+	}
 	else
-		{
-			rev_rotate(stk_a, '0');
-			rev_rotate(stk_b, '0');	
-		}
+	{
+		rev_rotate(stk_a, '0');
+		rev_rotate(stk_b, '0');
+	}
 }

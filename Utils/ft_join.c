@@ -6,11 +6,11 @@
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:23:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/17 12:43:22 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:22:46 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 int	skip_spaces(char **argv, int i, int j)
 {
