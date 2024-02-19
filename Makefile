@@ -1,7 +1,7 @@
 NAME = push_swap
 BONUS_NAME = checker
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
 
 
