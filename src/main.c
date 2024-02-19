@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 06:45:24 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/19 14:09:33 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/19 18:59:45 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,6 @@ int	main(int argc, char **argv)
 				&list_size);
 	if (!num_list)
 		return (0);
-	for (int i = 0; i < list_size; i++){
-		printf("%d\n", num_list[i]);
-	}
 	checkandsend(num_list, list_size);
 	return (0);
 }
