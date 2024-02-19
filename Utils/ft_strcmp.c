@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 15:25:50 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/19 13:11:43 by mshazaib         ###   ########.fr       */
+/*   Created: 2024/02/17 21:34:24 by mshazaib          #+#    #+#             */
+/*   Updated: 2024/02/18 20:22:46 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	ft_atoi(const char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	int	res;
-	int	sgn;
 
 	i = 0;
-	res = 0;
-	sgn = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sgn = -1;
-		i++;
-	}
-	while ((str[i] >= '0' && str[i] <= '9'))
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (sgn * res);
+	return (s1[i] - s2[i]);
 }

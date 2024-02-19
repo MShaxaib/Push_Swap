@@ -1,23 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/17 12:41:41 by mshazaib          #+#    #+#             */
+/*   Updated: 2024/02/18 18:20:23 by mshazaib         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_stack.h"
 
-int stk_length(t_stack *stk)
+int	stk_length(t_stack *stk)
 {
-	t_node *temp;
+	t_node	*temp;
 	int		ctr;
 
 	ctr = 0;
-	if(!stk || !stk->head)
-		return(0);
+	if (!stk || !stk->head)
+		return (0);
 	temp = stk->head;
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		ctr++;
 		temp = temp->previous;
 	}
-	return(ctr);
+	return (ctr);
 }
-
 
 void	update_index(t_stack *stk)
 {
@@ -30,9 +40,8 @@ void	update_index(t_stack *stk)
 	iter = stk->head;
 	while (iter)
 	{
-			iter->index = i;
-			i++;
-			iter = iter->previous;
+		iter->index = i;
+		i++;
+		iter = iter->previous;
 	}
-	
 }

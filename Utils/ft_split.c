@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 05:34:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 13:56:59 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/04 05:34:44 by mshazaib          #+#    #+#             */
+/*   Updated: 2024/02/19 13:12:00 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 int	set_end(char const *s, int begin)
 {
@@ -77,7 +77,7 @@ char	**fill_list(char *arg, int ctr)
 			begin++;
 		}
 		end = set_end(arg, begin);
-		char_list[i] = ft_substr(arg, begin, (size_t) end - begin);
+		char_list[i] = ft_substr(arg, begin, (size_t)end - begin);
 		begin = end;
 		i++;
 	}

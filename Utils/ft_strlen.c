@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 06:03:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/04 06:03:57 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/04 06:03:33 by mshazaib          #+#    #+#             */
+/*   Updated: 2024/02/19 13:12:06 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 size_t	ft_strlen(char const *str)
 {
@@ -18,8 +18,6 @@ size_t	ft_strlen(char const *str)
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }

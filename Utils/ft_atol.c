@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 05:20:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 05:21:02 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/09 05:20:45 by mshazaib          #+#    #+#             */
+/*   Updated: 2024/02/19 13:11:46 by mshazaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Utils.h"
+#include "utils.h"
 
 long	ft_atol(const char *str)
 {
