@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:23:25 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/19 13:11:56 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:37:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,34 @@ char	*copytolist(char **argv, int argc, int list_len)
 	list[i] = '\0';
 	return (list);
 }
+
+// char	*copytolist(char **argv, int argc, int list_len)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		y;
+// 	char	*list;
+
+// 	i = 0;
+// 	j = -1;
+// 	list = malloc((list_len) * sizeof(char));
+// 	if (!list)
+// 		return (NULL);
+// 	while (++j < argc)
+// 	{
+// 		y = -1;
+// 		while (argv[j][++y] != '\0')
+// 		{
+// 			y = skip_spaces(argv, j, y);
+// 			while (argv[j][y] != '\0' && !(argv[j][y] >= 9
+// 					&& argv[j][y] <= 13) && argv[j][y] != '\0' && i < list_len)
+// 				list[i++] = argv[j][y++];
+// 			list[i++] = ' ';
+// 		}
+// 	}
+// 	list[i] = '\0';
+// 	return (list);
+// }
 
 int	ft_listlen(char **argv)
 {

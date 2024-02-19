@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_getcharlist.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 04:30:42 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/19 13:10:43 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:36:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	trim_counter(char *args)
 		if (args[index] == ' ' || (args[index] >= 9 && args[index] <= 13))
 		{
 			spaces++;
-			numbers++;
+			index++;
 		}
 		else
 		{
@@ -39,9 +39,9 @@ int	trim_counter(char *args)
 				index++;
 			numbers++;
 		}
-		if (spaces == index)
-			return (-1);
 	}
+	if (spaces == index)
+		return (-1);
 	return (numbers);
 }
 
@@ -54,7 +54,7 @@ int	num_count(int argc, char **argv)
 	ctr = 0;
 	index = 0;
 	number = 0;
-	if (index < argc - 1)
+	while (index < argc - 1)
 	{
 		number = trim_counter(argv[index]);
 		if (number == -1)

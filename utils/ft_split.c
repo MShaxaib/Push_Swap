@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshazaib <mshazaib@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 05:34:44 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/19 13:12:00 by mshazaib         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:58:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_split(char **p)
 	int	j;
 
 	j = 0;
-	while (p[j] != NULL)
+	while (p != NULL && p[j] != NULL)
 	{
 		free(p[j]);
 		p[j] = NULL;
