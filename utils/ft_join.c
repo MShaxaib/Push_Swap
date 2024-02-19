@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:23:25 by mshazaib          #+#    #+#             */
-/*   Updated: 2024/02/19 14:37:53 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/19 19:26:07 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,9 @@
 
 int	skip_spaces(char **argv, int i, int j)
 {
-	while ((argv[i][j] == ' ') || ((argv[i][j] >= 9 && argv[i][j] <= 13)
-			&& argv[i][j] != '\0'))
+	while ((argv[i][j] == ' ') && argv[i][j] != '\0')
 		j++;
 	return (j);
-}
-
-void	ft_copy(char *argv, char *list, int *argv_index, int *list_index)
-{
-	int	lst_index;
-	int	arg_index;
-
-	lst_index = *list_index;
-	arg_index = *argv_index;
-	while (argv[arg_index] != '\0' && !(argv[arg_index] >= 9
-			&& argv[arg_index] <= 13) && argv[arg_index] != '\0')
-	{
-		list[lst_index] = argv[arg_index];
-		arg_index++;
-		lst_index++;
-		*list_index = lst_index;
-		*argv_index = arg_index;
-	}
 }
 
 char	*copytolist(char **argv, int argc, int list_len)
@@ -46,54 +27,26 @@ char	*copytolist(char **argv, int argc, int list_len)
 	char	*list;
 
 	i = 0;
-	j = 0;
-	y = 0;
-	list = malloc((list_len) * sizeof(char *));
+	j = -1;
+	list = malloc((list_len) * sizeof(char));
 	if (!list)
 		return (NULL);
-	while (j < argc)
+	while (++j < argc)
 	{
-		y = 0;
-		while (argv[j][y] != '\0')
+		y = -1;
+		while (argv[j][++y])
 		{
 			y = skip_spaces(argv, j, y);
-			ft_copy(argv[j], list, &y, &i);
-			y = skip_spaces(argv, j, y);
+			while (argv[j][y] && argv[j][y] != ' ')
+				list[i++] = argv[j][y++];
 			list[i++] = ' ';
+			if (!argv[j][y])
+				y--;
 		}
-		j++;
 	}
-	list[i] = '\0';
+	list[--i] = '\0';
 	return (list);
 }
-
-// char	*copytolist(char **argv, int argc, int list_len)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		y;
-// 	char	*list;
-
-// 	i = 0;
-// 	j = -1;
-// 	list = malloc((list_len) * sizeof(char));
-// 	if (!list)
-// 		return (NULL);
-// 	while (++j < argc)
-// 	{
-// 		y = -1;
-// 		while (argv[j][++y] != '\0')
-// 		{
-// 			y = skip_spaces(argv, j, y);
-// 			while (argv[j][y] != '\0' && !(argv[j][y] >= 9
-// 					&& argv[j][y] <= 13) && argv[j][y] != '\0' && i < list_len)
-// 				list[i++] = argv[j][y++];
-// 			list[i++] = ' ';
-// 		}
-// 	}
-// 	list[i] = '\0';
-// 	return (list);
-// }
 
 int	ft_listlen(char **argv)
 {
@@ -110,8 +63,7 @@ int	ft_listlen(char **argv)
 		while (argv[i][j] != '\0')
 		{
 			j = skip_spaces(argv, i, j);
-			while (argv[i][j] != ' ' && !(argv[i][j] >= 9 && argv[i][j] <= 13)
-				&& argv[i][j] != '\0')
+			while (argv[i][j] != ' ' && argv[i][j] != '\0')
 			{
 				j++;
 				len++;
@@ -130,6 +82,5 @@ char	*ft_join(int argc, char **argv)
 
 	list_len = ft_listlen(argv);
 	joined = copytolist(argv, argc, list_len);
-	joined[list_len] = '\0';
 	return (joined);
 }
